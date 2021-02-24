@@ -4,15 +4,15 @@ module.exports = {
 	entry: './src/index.js',
 	output: {
 		path: path.join(__dirname, "dist"),
-		filename: 'paella-external-plugin',
-        library: 'paella-external-plugin',
+		filename: 'paella-basic-plugins',
+        library: 'paella-basic-plugins',
         libraryTarget: 'umd'
 	},
 	externals: {
         paella: {
-            commonjs: 'paella',
-            commonjs2: 'paella',
-            amd: 'paella'
+            commonjs: 'paella-core',
+            commonjs2: 'paella-core',
+            amd: 'paella-core'
         }
     },
 	
