@@ -4,7 +4,7 @@ module.exports = {
 	entry: './src/index.js',
 	output: {
 		path: path.join(__dirname, "dist"),
-		filename: 'paella-basic-plugins',
+		filename: 'paella-basic-plugins.js',
         library: 'paella-basic-plugins',
         libraryTarget: 'umd'
 	},
