@@ -1,6 +1,6 @@
 import { ButtonPlugin } from 'paella-core';
 
-import userIcon from './user.svg';
+import userIcon from '../icons/user.svg';
 
 export default class TestExternalPlugin extends ButtonPlugin {
     get icon() {

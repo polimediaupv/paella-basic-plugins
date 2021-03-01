@@ -1,9 +1,9 @@
 import { Paella } from 'paella-core';
-import { getPluginContext } from './index';
+import getBasicPluginsContext from './index';
 
 const initParams = {
 	customPluginContext: [
-		getPluginContext()
+		getBasicPluginsContext()
 	]
 };
 
