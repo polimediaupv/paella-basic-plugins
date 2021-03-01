@@ -2,7 +2,7 @@ import { Paella } from 'paella-core';
 import { getPluginContext } from './index';
 
 const initParams = {
-	custommPluginContext: [
+	customPluginContext: [
 		getPluginContext()
 	]
 };
