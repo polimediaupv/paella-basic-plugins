@@ -23,4 +23,9 @@ config.plugins.push(new CopyWebpackPlugin({
 	]
 }));
 
+config.devServer = {
+	port: 8090,
+	disableHostCheck: true
+};
+
 module.exports = config;

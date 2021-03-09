@@ -1,0 +1,33 @@
+
+.button-plugin-side-area.volume-button {
+    height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.button-plugin-container {
+    height: 40px;
+}
+
+.volume-slider {
+    width: 100px;
+    height: 4px;
+    background-color: white;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    position: relative;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    pointer-events: none;
+}
+
+.volume-slider .volume-slider-button {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0,0.6);
+    top: -8px;
+}
