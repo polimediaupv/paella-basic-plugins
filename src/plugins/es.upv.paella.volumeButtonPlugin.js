@@ -8,6 +8,58 @@ import volumeMute from '../icons/volume-mute.svg';
 
 import "../css/slider.css";
 
+function buildSlider() {
+    this.sliderContainer.innerHTML = "";
+    const slider = createElementWithHtmlText(`
+        <div class="volume-slider">
+            <div class="volume-slider-button"></div>
+        </div>`, this.sliderContainer);
+    let mouseDown = false;
+    const sliderButton = slider.getElementsByClassName('volume-slider-button')[0];
+    sliderButton.style.left = `${ this._prevVolume * 100 }%`;
+    this._sliderButton = sliderButton;
+
+    const setVolume = async (offsetX) => {
+        const offset = 10;
+        const { offsetWidth } = this.sliderContainer;
+        let newVolume = offsetX * 100 / offsetWidth;
+        if (newVolume < offset) {
+            newVolume = 0;
+        }
+        if (newVolume > 100 - offset) {
+            newVolume = 100;
+        }
+        newVolume /= 100;
+        await this.player.videoContainer.setVolume(newVolume);
+    }
+
+    this.sliderContainer.addEventListener("mousedown", async (evt) => {
+        mouseDown = true;
+        await setVolume(evt.offsetX);
+    });
+
+    this.sliderContainer.addEventListener("mousemove", async (evt) => {
+        if (mouseDown) {
+            await setVolume(evt.offsetX);                    
+        }
+    });
+
+    this.sliderContainer.addEventListener("mouseleave", () => {
+        mouseDown = false;
+    });
+
+    this.sliderContainer.addEventListener("mouseup", () => {
+        mouseDown = false;
+    });
+
+    this.sliderContainer.style.display = "none";
+
+    bindEvent(this.player, Events.VOLUME_CHANGED, ({volume}) => {
+        this.updateIcon(volume)
+    });
+}
+
+
 export default class VolumePlugin extends ButtonPlugin {
 
     get className() {
@@ -50,55 +102,7 @@ export default class VolumePlugin extends ButtonPlugin {
         this._prevVolume = await this.player.videoContainer.volume();
         this.updateIcon(this._prevVolume);
 
-        this.sliderContainer.innerHTML = "";
-        const slider = createElementWithHtmlText(`
-            <div class="volume-slider">
-                <div class="volume-slider-button"></div>
-            </div>`, this.sliderContainer);
-        let mouseDown = false;
-        const sliderButton = slider.getElementsByClassName('volume-slider-button')[0];
-        sliderButton.style.left = `${ this._prevVolume * 100 }%`;
-        this._sliderButton = sliderButton;
-
-        const setVolume = async (offsetX) => {
-            const offset = 10;
-            const { offsetWidth } = this.sliderContainer;
-            let newVolume = offsetX * 100 / offsetWidth;
-            if (newVolume < offset) {
-                newVolume = 0;
-            }
-            if (newVolume > 100 - offset) {
-                newVolume = 100;
-            }
-            newVolume /= 100;
-            console.log(newVolume);
-            await this.player.videoContainer.setVolume(newVolume);
-        }
-
-        this.sliderContainer.addEventListener("mousedown", async (evt) => {
-            mouseDown = true;
-            await setVolume(evt.offsetX);
-        });
-
-        this.sliderContainer.addEventListener("mousemove", async (evt) => {
-            if (mouseDown) {
-                await setVolume(evt.offsetX);                    
-            }
-        });
-
-        this.sliderContainer.addEventListener("mouseleave", () => {
-            mouseDown = false;
-        });
-
-        this.sliderContainer.addEventListener("mouseup", () => {
-            mouseDown = false;
-        });
-
-        this.sliderContainer.style.display = "none";
-
-        bindEvent(this.player, Events.VOLUME_CHANGED, ({volume}) => {
-            this.updateIcon(volume)
-        })
+        buildSlider.apply(this);
     }
 
     async mouseOver(target) {
@@ -107,8 +111,7 @@ export default class VolumePlugin extends ButtonPlugin {
         }
     }
 
-    async mouseOut(target,evt) {
-        console.log(evt.target);
+    async mouseOut(target) {
         if (target === this.container) {
             this.sliderContainer.style.display = "none";
         }
@@ -117,7 +120,7 @@ export default class VolumePlugin extends ButtonPlugin {
     async action() {
         const currentVolume = await this.player.videoContainer.volume();
         let newVolume = 0;
-        if (currentVolume === 0 && this._prevVolume !== 0) {
+        if (currentVolume === 0 && this._prevVolume === 0) {
             newVolume = 1;
         }
         else if (currentVolume === 0 && this._prevVolume > 0) {
