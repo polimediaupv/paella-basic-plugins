@@ -67,16 +67,6 @@
             "order": 1
         },
 
-        "es.upv.paella.testButton": {
-            "enabled": true,
-            "side": "left",
-            "order": 3
-        },
-        
-        "es.upv.paella.externalPluginTest": {
-            "enabled": true,
-            "side": "right"
-        },
         "es.upv.paella.layoutSelector": {
             "enabled": true,
             "side": "right"
