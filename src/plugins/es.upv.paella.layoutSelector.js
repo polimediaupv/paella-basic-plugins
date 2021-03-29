@@ -2,19 +2,6 @@ import { MenuButtonPlugin, utils } from 'paella-core';
 
 import presentationMode from '../icons/presentation-mode.svg';
 
-function loadIconAsync(url) {
-	return new Promise((resolve,reject) => {
-		fetch(url)
-			.then((icon) => {
-				return icon.text()
-			})
-			.then(svg => {
-				resolve(svg);
-			})
-			.catch(err => reject(err));
-	})
-}
-
 export default class LayoutSelectorPlugin extends MenuButtonPlugin {
 	async load() {
 		this.icon = presentationMode;
@@ -42,7 +29,7 @@ export default class LayoutSelectorPlugin extends MenuButtonPlugin {
 		return "radio";
 	}
 	
-	itemSelected(itemData, menuItems) {
+	itemSelected(itemData, /* menuItems */) {
 		this.player.videoContainer.setLayout(itemData.id);
 	}
 }
