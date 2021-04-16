@@ -69,7 +69,8 @@
 
         "es.upv.paella.layoutSelector": {
             "enabled": true,
-            "side": "right"
+            "side": "right",
+            "parentContainer": "videoContainer"
         }
     }
 }
