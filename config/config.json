@@ -71,6 +71,13 @@
             "enabled": true,
             "side": "right",
             "parentContainer": "videoContainer"
+        },
+
+        "es.upv.paella.playbackRateButton": {
+            "enabled": true,
+            "side": "right",
+            "parentContainer": "videoContainer",
+            "rates": [0.75, 1, 1.5, 2]
         }
     }
 }
