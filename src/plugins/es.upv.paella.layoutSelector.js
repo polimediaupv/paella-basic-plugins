@@ -3,6 +3,14 @@ import { MenuButtonPlugin, utils } from 'paella-core';
 import presentationMode from '../icons/presentation-mode.svg';
 
 export default class LayoutSelectorPlugin extends MenuButtonPlugin {
+	async isEnabled() {
+		if (!(await super.isEnabled())) {
+			return false;
+		}
+
+		return this.player.videoContainer.validContentSettings.length > 1;
+	}
+	
 	async load() {
 		this.icon = presentationMode;
 	}
