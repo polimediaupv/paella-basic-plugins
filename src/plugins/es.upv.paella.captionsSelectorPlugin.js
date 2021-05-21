@@ -1,7 +1,7 @@
 import { MenuButtonPlugin, Events, bindEvent } from 'paella-core';
 
 // TODO: Load captions icon
-import captionsPlugin from '../icons/screen.svg';
+import captionsPlugin from '../icons/captions.svg';
 
 export default class CaptionsSelectorPlugin extends MenuButtonPlugin{
     async load() {
