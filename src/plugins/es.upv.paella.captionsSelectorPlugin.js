@@ -6,7 +6,7 @@ import captionsPlugin from '../icons/screen.svg';
 export default class CaptionsSelectorPlugin extends MenuButtonPlugin{
     async load() {
         this.icon = captionsPlugin;
-        this._captionsCanvas = await this.player.captionsCanvas;
+        this._captionsCanvas = this.player.captionsCanvas;
 
         if (this._captionsCanvas.captions.length==0) {
             this.hide();
