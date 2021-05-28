@@ -102,6 +102,12 @@
             "enabled": true,
             "side": "right",
             "parentContainer": "videoContainer"
+        },
+
+        "es.upv.paella.qualitySelector": {
+            "enabled": true,
+            "side": "right",
+            "parentContainer": "videoContainer"
         }
     }
 }
