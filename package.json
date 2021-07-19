@@ -1,6 +1,6 @@
 {
 	"name": "paella-basic-plugins",
-	"version": "1.0.0-beta.1",
+	"version": "1.0.0-beta.2",
 	"description": "Basic plugins for Paella Player",
 	"main": "src/index.js",
 	"module": "dist/paella-basic-plugins.js",
@@ -33,6 +33,6 @@
 		"svg-inline-loader": "^0.8.2"
 	},
 	"dependencies": {
-		"paella-core": "^1.0.0-beta.8"
+		"paella-core": "^1.0.0-beta.11"
 	}
 }
