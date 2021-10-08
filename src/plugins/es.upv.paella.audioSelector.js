@@ -3,6 +3,15 @@ import { MenuButtonPlugin } from 'paella-core';
 import screenIcon from '../icons/screen.svg';
 
 export default class AudioSelectorPlugin extends MenuButtonPlugin {
+
+    getAriaLabel() {
+        return "Select the active audio track";
+    }
+
+    getDescription() {
+        return this.getAriaLabel();
+    }
+
     async isEnabled() {
         if (!(await super.isEnabled())) {
             return false;
