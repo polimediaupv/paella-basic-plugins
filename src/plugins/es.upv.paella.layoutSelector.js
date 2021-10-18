@@ -3,6 +3,22 @@ import { MenuButtonPlugin, utils } from 'paella-core';
 import presentationMode from '../icons/presentation-mode.svg';
 
 export default class LayoutSelectorPlugin extends MenuButtonPlugin {
+	getAriaLabel() {
+        return "Switch the video layout";
+    }
+
+    getDescription() {
+        return this.getAriaLabel();
+    }
+
+	async getDictionaries() {
+		return {
+			es: {
+				"Switch the video layout": "Cambiar la disposición de los vídeos"
+			}
+		}
+	}
+
 	async isEnabled() {
 		if (!(await super.isEnabled())) {
 			return false;

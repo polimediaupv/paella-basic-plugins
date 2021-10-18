@@ -61,6 +61,21 @@ function buildSlider() {
 
 
 export default class VolumePlugin extends ButtonPlugin {
+    getAriaLabel() {
+        return "Change volume";
+    }
+
+    getDescription() {
+        return this.getAriaLabel();
+    }
+
+	async getDictionaries() {
+		return {
+			es: {
+				"Change volume": "Cambiar el volumen del audio"
+			}
+		}
+	}
 
     get className() {
         return "volume-button";

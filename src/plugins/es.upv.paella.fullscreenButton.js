@@ -4,6 +4,22 @@ import fullscreenIcon from '../icons/fullscreen.svg';
 import windowedIcon from '../icons/windowed.svg';
 
 export default class PauseButtonPlugin extends ButtonPlugin {
+	getAriaLabel() {
+        return "Toggle fullscreen";
+    }
+
+    getDescription() {
+        return this.getAriaLabel();
+    }
+
+	async getDictionaries() {
+		return {
+			es: {
+				"Toggle fullscreen": "Cambiar modo de pantalla completa"
+			}
+		}
+	}
+
 	async isEnabled() {
 		const enabled = await super.isEnabled()
 		return enabled && this.player.isFullScreenSupported()

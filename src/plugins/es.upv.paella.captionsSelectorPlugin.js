@@ -4,6 +4,22 @@ import { MenuButtonPlugin, Events, bindEvent } from 'paella-core';
 import captionsPlugin from '../icons/captions.svg';
 
 export default class CaptionsSelectorPlugin extends MenuButtonPlugin{
+    getAriaLabel() {
+        return "Select captions";
+    }
+
+    getDescription() {
+        return this.getAriaLabel();
+    }
+
+	async getDictionaries() {
+		return {
+			es: {
+				"Select captions": "Seleccionar subtítulos"
+			}
+		}
+	}
+
     async load() {
         this.icon = captionsPlugin;
         this._captionsCanvas = this.player.captionsCanvas;

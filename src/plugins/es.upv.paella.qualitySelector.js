@@ -3,6 +3,22 @@ import { MenuButtonPlugin } from 'paella-core';
 import screenIcon from '../icons/screen.svg';
 
 export default class QualitySelectorPlugin extends MenuButtonPlugin {
+    getAriaLabel() {
+        return "Select video quality";
+    }
+
+    getDescription() {
+        return this.getAriaLabel();
+    }
+
+	async getDictionaries() {
+		return {
+			es: {
+				"Select video quality": "Seleccionar la calidad de reproducción del vídeo"
+			}
+		}
+	}
+
     async isEnabled() {
         if (!(await super.isEnabled())) {
             return false;

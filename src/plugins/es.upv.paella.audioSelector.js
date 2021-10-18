@@ -51,4 +51,12 @@ export default class AudioSelectorPlugin extends MenuButtonPlugin {
         await this.player.videoContainer.streamProvider.setCurrentAudioTrack(itemData.data);
         this.updateAudioLabel();
     }
+
+    async getDictionaries() {
+        return {
+            es: {
+                "Select the active audio track": "Seleccionar la pista de audio activa"
+            }
+        }
+    }
 }

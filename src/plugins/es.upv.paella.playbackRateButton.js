@@ -4,6 +4,22 @@ import screenIcon from '../icons/screen.svg';
 import '../css/playbackRate.css';
 
 export default class PlaybackRateButton extends MenuButtonPlugin {
+    getAriaLabel() {
+        return "Switch the playback speed";
+    }
+
+    getDescription() {
+        return this.getAriaLabel();
+    }
+
+	async getDictionaries() {
+		return {
+			es: {
+				"Switch the playback speed": "Cambiar la velocidad de reproducción"
+			}
+		}
+	}
+
     async load() {
         this.icon = screenIcon;
         this.title = "1x";
