@@ -9,6 +9,8 @@ module.exports = {
 			amd: 'paella-core'
 		}
 	},
+
+	devtool: 'source-map',
 	
 	module: {
 		rules: [
