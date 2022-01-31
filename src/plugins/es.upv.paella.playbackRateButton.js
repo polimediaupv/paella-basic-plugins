@@ -1,4 +1,4 @@
-import { MenuButtonPlugin } from 'paella-core';
+import { MenuButtonPlugin, Events } from 'paella-core';
 
 import screenIcon from '../icons/screen.svg';
 import '../css/playbackRate.css';
@@ -24,6 +24,10 @@ export default class PlaybackRateButton extends MenuButtonPlugin {
         this.icon = screenIcon;
         this.title = "1x";
         this._rates = this.config.rates || [0.5, 0.75, 1, 1.25, 1.5, 2];
+
+        this.player.bindEvent(Events.PLAYBACK_RATE_CHANGED, (params) => {
+            this.title = params.newPlaybackRate + "x";
+        })
     }
 
     async getMenu() {
