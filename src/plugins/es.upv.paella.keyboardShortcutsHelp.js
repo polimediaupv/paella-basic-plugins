@@ -1,7 +1,6 @@
 import {
 	PopUpButtonPlugin,
-	createElementWithHtmlText,
-	translate
+	createElementWithHtmlText
 } from 'paella-core';
 
 import KeyboardIcon from '../icons/keyboard.svg';
@@ -17,7 +16,7 @@ export default class KeyboardShortcutsHelpPlugin extends PopUpButtonPlugin {
 	}
 
 	getKeyText(sc) {
-		let key = translate(sc.keyCode);
+		let key = this.player.translate(sc.keyCode);
 		if (sc.keyModifiers.altKey) {
 			key += " + Alt";
 		}
@@ -40,7 +39,7 @@ export default class KeyboardShortcutsHelpPlugin extends PopUpButtonPlugin {
 		const descriptions = {};
 
 		this.player.getShortcuts().forEach(sc => {
-			const description = translate(sc.description);
+			const description = this.player.translate(sc.description);
 			if (!descriptions[description]) {
 				descriptions[description] = [sc];
 			}
@@ -56,7 +55,7 @@ export default class KeyboardShortcutsHelpPlugin extends PopUpButtonPlugin {
 				if (keys !== "") {
 					keys += " / ";
 				}
-				keys += translate(this.getKeyText(sc));
+				keys += this.player.translate(this.getKeyText(sc));
 			});
 
 			const item = createElementWithHtmlText(`
