@@ -71,6 +71,12 @@
             "side": "right",
             "order": 2
         },
+        "es.upv.paella.downloadsPlugin": {
+            "enabled": true,
+            "side": "right",
+            "order": 3,
+            "description": "Downloads"
+        },
 
         "es.upv.paella.volumeButtonPlugin": {
             "enabled": true,
