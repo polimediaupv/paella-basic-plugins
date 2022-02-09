@@ -126,6 +126,13 @@
 
         "es.upv.paella.defaultShortcuts": {
             "enabled": true
+        },
+
+        "es.upv.paella.keyboardShortcutsHelp": {
+            "enabled": true,
+            "parentContainer": "videoContainer",
+            "order": 80,
+            "description": "Keyboard Shortcuts"
         }
     }
 }
