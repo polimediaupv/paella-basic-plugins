@@ -166,3 +166,32 @@ Allows the user to change the active audio, in case the main audio stream suppor
 }
 ```
 
+### Downloadss plugin
+
+Displays a list of downloadable videos. The list will show all MP4 video sources present in the video manifest.
+
+```json
+{
+    "es.upv.paella.downloadsPlugin": {
+        "enabled": true,
+        "side": "right",
+        "description": "Downloads"
+    },
+    ...
+}
+```
+
+### Keyboard shortcuts help
+
+Displays a list of available keyboard shortcuts, which is obtained from the active keyboard shortcut plugins.
+
+```json
+{
+    "es.upv.paella.keyboardShortcutsHelp": {
+        "enabled": true,
+        "side": "right",
+        "description": "Keyboard Shortcuts"
+    },
+    ...
+}
+```
