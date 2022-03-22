@@ -1,14 +1,6 @@
 const path = require('path');
 
 module.exports = {
-	
-	externals: {
-		paella: {
-			commonjs: 'paella-core',
-			commonjs2: 'paella-core',
-			amd: 'paella-core'
-		}
-	},
 
 	devtool: 'source-map',
 	
