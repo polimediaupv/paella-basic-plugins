@@ -7,6 +7,11 @@ import KeyboardIcon from '../icons/keyboard.svg';
 import '../css/KeyboardShortcutsHelp.css';
 
 export default class KeyboardShortcutsHelpPlugin extends PopUpButtonPlugin {
+	async isEnabled() {
+		const enabled = await super.isEnabled();
+		return enabled && this.player.getShortcuts().length > 0;
+	}
+
 	async load() {
 		this.icon = KeyboardIcon;
 	}
