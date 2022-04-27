@@ -138,6 +138,12 @@
             "parentContainer": "videoContainer",
             "order": 80,
             "description": "Keyboard Shortcuts"
+        },
+
+        "es.upv.paella.findCaptionsPlugin": {
+            "enabled": true,
+            "side": "right",
+            "description": "Search in captions"
         }
     }
 }
