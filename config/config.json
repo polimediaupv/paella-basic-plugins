@@ -115,8 +115,7 @@
 
         "es.upv.paella.captionsSelectorPlugin": {
             "enabled": true,
-            "side": "right",
-            "parentContainer": "videoContainer"
+            "side": "right"
         },
 
         "es.upv.paella.qualitySelector": {

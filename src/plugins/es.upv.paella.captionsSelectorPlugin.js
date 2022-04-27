@@ -1,7 +1,7 @@
 import { MenuButtonPlugin, Events, bindEvent } from 'paella-core';
 
 // TODO: Load captions icon
-import captionsPlugin from '../icons/captions.svg';
+import captionsPlugin from '../icons/captions_cc.svg';
 
 export default class CaptionsSelectorPlugin extends MenuButtonPlugin{
     getAriaLabel() {
