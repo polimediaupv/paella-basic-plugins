@@ -195,3 +195,18 @@ Displays a list of available keyboard shortcuts, which is obtained from the acti
     ...
 }
 ```
+
+### Find captions plugin
+
+Permite buscar un texto en los subtítulos del vídeo.
+
+```json
+{
+    "es.upv.paella.findCaptionsPlugin": {
+        "enabled": true,
+        "side": "right",
+        "description": "Search in captions"
+    },
+    ...
+}
+```
