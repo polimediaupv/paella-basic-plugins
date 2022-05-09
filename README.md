@@ -50,6 +50,8 @@ Enables and disables full screen mode.
 }
 ```
 
+**Exported as** `FullscreenButtonPlugin`.
+
 ### Volume
 
 Set the audio volume. This plugin only works on desktop platforms, as the volume change APIs do not work on mobile devices.
@@ -66,6 +68,8 @@ Set the audio volume. This plugin only works on desktop platforms, as the volume
     }
 }
 ```
+
+**Exported as** `VolumeButtonPlugin`.
 
 ### Forward and backward buttons
 
@@ -90,6 +94,8 @@ These are two independent button-type plugins, which advance or rewind the video
 }
 ```
 
+**Exported as** `ForwardButtonPlugin` and `BackwardButtonPlugin`.
+
 ### Layout selector
 
 Allows you to change the active video layout.
@@ -105,6 +111,8 @@ Allows you to change the active video layout.
     }
 }
 ```
+
+**Exported as** `LayoutSelectorButtonPlugin`.
 
 ### Playback rate button
 
@@ -122,6 +130,8 @@ Modifies the video playback speed. In the plugin configuration it is possible to
 },
 ```
 
+**Exported as** `PlaybackRateButtonPlugin`.
+
 ### Captions selector plugin
 
 Allows you to select the subtitle track of the video. The plugin is able to detect in real time if the number of audio tracks has been modified, and updates to reflect these changes:
@@ -136,6 +146,8 @@ Allows you to select the subtitle track of the video. The plugin is able to dete
     ...
 }
 ```
+
+**Exported as** `CaptionsSelectorButtonPlugin`.
 
 ### Quality selector
 
@@ -152,6 +164,8 @@ Allows to select the video quality level, in case the video supports several qua
 }
 ```
 
+**Exported as** `QualitySelectorButtonPlugin`.
+
 ### Audio selector
 
 Allows the user to change the active audio, in case the main audio stream supports multiple audio tracks.
@@ -166,7 +180,9 @@ Allows the user to change the active audio, in case the main audio stream suppor
 }
 ```
 
-### Downloadss plugin
+**Exported as** `AudioSelectorButtonPlugin`.
+
+### Downloads plugin
 
 Displays a list of downloadable videos. The list will show all MP4 video sources present in the video manifest.
 
@@ -180,6 +196,8 @@ Displays a list of downloadable videos. The list will show all MP4 video sources
     ...
 }
 ```
+
+**Exported as** `DownloadsButtonPlugin`.
 
 ### Keyboard shortcuts help
 
@@ -196,6 +214,8 @@ Displays a list of available keyboard shortcuts, which is obtained from the acti
 }
 ```
 
+**Exported as** `KeyboardHelpButtonPlugin`.
+
 ### Find captions plugin
 
 Permite buscar un texto en los subtítulos del vídeo.
@@ -210,3 +230,5 @@ Permite buscar un texto en los subtítulos del vídeo.
     ...
 }
 ```
+
+**Exported as* `FindCaptionsButtonPlugin`.
