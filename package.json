@@ -1,6 +1,6 @@
 {
 	"name": "paella-basic-plugins",
-	"version": "1.0.15",
+	"version": "1.0.16",
 	"description": "Basic plugins for Paella Player",
 	"main": "src/index.js",
 	"module": "dist/paella-basic-plugins.js",
@@ -33,6 +33,6 @@
 		"webpack-dev-server": "^4.7.3"
 	},
 	"dependencies": {
-		"paella-core": "^1.0.45"
+		"paella-core": "^1.1.2"
 	}
 }
