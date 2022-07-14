@@ -198,6 +198,12 @@ Allows the user to change the active audio, in case the main audio stream suppor
 
 **Exported as** `AudioSelectorButtonPlugin`.
 
+**Icon customization data:**
+
+- Plugin identifier: `es.upv.paella.qualitySelector`
+- Icon names:
+    * `screenIcon`: screen icon, with filled background, to give contrast to the text of the selected quality.
+
 ### Downloads plugin
 
 Displays a list of downloadable videos. The list will show all MP4 video sources present in the video manifest.

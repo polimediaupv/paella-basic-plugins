@@ -1,6 +1,6 @@
 import { MenuButtonPlugin } from 'paella-core';
 
-import screenIcon from '../icons/screen.svg';
+import defaultScreenIcon from '../icons/screen.svg';
 
 export default class QualitySelectorPlugin extends MenuButtonPlugin {
     getAriaLabel() {
@@ -30,7 +30,7 @@ export default class QualitySelectorPlugin extends MenuButtonPlugin {
     }
 
     async load() {
-        this.icon = screenIcon;
+        this.icon = this.player.getCustomPluginIcon("es.upv.paella.qualitySelector","screenIcon") || defaultScreenIcon;
 
         await this.updateQualityLabel();
     }

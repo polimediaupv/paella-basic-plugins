@@ -7,6 +7,7 @@ import volumeHighIcon from "./altIcons/volumeHighIcon.svg";
 import volumeMidIcon from "./altIcons/volumeMidIcon.svg";
 import volumeLowIcon from "./altIcons/volumeLowIcon.svg";
 import volumeMuteIcon from "./altIcons/volumeMuteIcon.svg";
+import screenIcon from "./altIcons/screenIcon.svg";
 
 const initParams = {
 	customPluginContext: [
@@ -28,5 +29,8 @@ paella.loadManifest()
 		paella.addCustomPluginIcon("es.upv.paella.volumeButtonPlugin","volumeMidIcon",volumeMidIcon);
 		paella.addCustomPluginIcon("es.upv.paella.volumeButtonPlugin","volumeLowIcon",volumeLowIcon);
 		paella.addCustomPluginIcon("es.upv.paella.volumeButtonPlugin","volumeMuteIcon",volumeMuteIcon);
+
+		// quality selector
+		paella.addCustomPluginIcon("es.upv.paella.qualitySelector","screenIcon",screenIcon);
 	})
 	.catch(e => console.error(e));
