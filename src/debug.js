@@ -9,6 +9,8 @@ import volumeLowIcon from "./altIcons/volumeLowIcon.svg";
 import volumeMuteIcon from "./altIcons/volumeMuteIcon.svg";
 import screenIcon from "./altIcons/screenIcon.svg";
 import layoutIcon from "./altIcons/layoutIcon.svg";
+import backwardIcon from "./altIcons/backwardIcon.svg";
+import forwardIcon from "./altIcons/forwardIcon.svg";
 
 const initParams = {
 	customPluginContext: [
@@ -39,5 +41,11 @@ paella.loadManifest()
 
 		// layout selector
 		paella.addCustomPluginIcon("es.upv.paella.layoutSelector","layoutIcon",layoutIcon);
+
+		// backward 30 segonds
+		paella.addCustomPluginIcon("es.upv.paella.backwardButtonPlugin","backwardIcon",backwardIcon);
+
+		// forward 30 segonds
+		paella.addCustomPluginIcon("es.upv.paella.forwardButtonPlugin","forwardIcon",forwardIcon);
 	})
 	.catch(e => console.error(e));

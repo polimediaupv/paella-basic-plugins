@@ -1,6 +1,6 @@
 import { ButtonPlugin } from 'paella-core';
 
-import forwardIcon from '../icons/forward-30-s.svg';
+import defaultForwardIcon from '../icons/forward-30-s.svg';
 
 export default class ForwardButtonPlugin extends ButtonPlugin {
 	getAriaLabel() {
@@ -20,7 +20,7 @@ export default class ForwardButtonPlugin extends ButtonPlugin {
 	}
 
 	async load() {
-		this.icon = forwardIcon;	
+		this.icon = this.player.getCustomPluginIcon(this.name,"forwardIcon") || defaultForwardIcon;
 	}
 	
 	async action() {

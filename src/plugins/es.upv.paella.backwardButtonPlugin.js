@@ -1,6 +1,6 @@
 import { ButtonPlugin } from 'paella-core';
 
-import backwardIcon from '../icons/back-30-s.svg';
+import defaultBackwardIcon from '../icons/back-30-s.svg';
 
 export default class BackwardButtonPlugin extends ButtonPlugin {
 	getAriaLabel() {
@@ -20,7 +20,7 @@ export default class BackwardButtonPlugin extends ButtonPlugin {
 	}
 	
 	async load() {
-		this.icon = backwardIcon;	
+		this.icon = this.player.getCustomPluginIcon(this.name,"backwardIcon") || defaultBackwardIcon;	
 	}
 	
 	async action() {

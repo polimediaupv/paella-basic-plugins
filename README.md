@@ -112,6 +112,16 @@ These are two independent button-type plugins, which advance or rewind the video
 
 **Exported as** `ForwardButtonPlugin` and `BackwardButtonPlugin`.
 
+**Icon customization data:**
+
+- Plugin identifier: `es.upv.paella.forwardButtonPlugin`
+- Icon names:
+    * `forwardIcon`
+
+- Plugin identifier: `es.upv.paella.backwardButtonPlugin`
+- Icon names:
+    * `backwardIcon`
+
 ### Layout selector
 
 Allows you to change the active video layout.
