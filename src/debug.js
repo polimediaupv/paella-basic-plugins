@@ -12,6 +12,7 @@ import layoutIcon from "./altIcons/layoutIcon.svg";
 import backwardIcon from "./altIcons/backwardIcon.svg";
 import forwardIcon from "./altIcons/forwardIcon.svg";
 import keyboardIcon from "./altIcons/keyboardIcon.svg";
+import downloadIcon from "./altIcons/downloadIcon.svg";
 
 const initParams = {
 	customPluginContext: [
@@ -54,5 +55,8 @@ paella.loadManifest()
 
 		// audio selector
 		paella.addCustomPluginIcon("es.upv.paella.audioSelector","screenIcon",screenIcon);
+
+		// download icon
+		paella.addCustomPluginIcon("es.upv.paella.downloadsPlugin","downloadIcon",downloadIcon);
 	})
 	.catch(e => console.error(e));

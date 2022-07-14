@@ -249,6 +249,12 @@ Displays a list of downloadable videos. The list will show all MP4 video sources
 
 **Exported as** `DownloadsButtonPlugin`.
 
+**Icon customization data:**
+
+- Plugin identifier: `es.upv.paella.downloadsPlugin`
+- Icon names:
+    * `downloadIcon`
+
 ### Keyboard shortcuts help
 
 Displays a list of available keyboard shortcuts, which is obtained from the active keyboard shortcut plugins.

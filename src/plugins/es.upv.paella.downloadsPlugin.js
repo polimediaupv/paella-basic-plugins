@@ -6,11 +6,11 @@ import {
 
 import '../css/DownloadsPlugin.css';
 
-import DownloadIcon from '../icons/download.svg';
+import defaultDownloadIcon from '../icons/download.svg';
 
 export default class DownloadsPlugin extends PopUpButtonPlugin {
     async load() {
-        this.icon = DownloadIcon;
+        this.icon = this.player.getCustomPluginIcon(this.name,"downloadIcon") || defaultDownloadIcon;
 
         const { streams } = this.player.videoManifest;
         this._downloads = {};
