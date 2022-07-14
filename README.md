@@ -52,6 +52,13 @@ Enables and disables full screen mode.
 
 **Exported as** `FullscreenButtonPlugin`.
 
+**Icon customization data:**
+
+- Plugin identifier: `es.upv.paella.fullscreenButton`
+- Icon names:
+    * `fullscreenIcon`: enter fullscreen mode icon.
+    * `windowedIcon`: exit fullscreen mode icon.
+
 ### Volume
 
 Set the audio volume. This plugin only works on desktop platforms, as the volume change APIs do not work on mobile devices.

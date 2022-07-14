@@ -26,13 +26,15 @@ export default class PauseButtonPlugin extends ButtonPlugin {
 	}
 	
 	async load() {
-		this.icon = fullscreenIcon;
+		const fsIcon = this.player.getCustomPluginIcon(this.name,"fullscreenIcon") || fullscreenIcon;
+		const wIcon = this.player.getCustomPluginIcon(this.name,"windowedIcon") || fullscreenIcon;
+		this.icon = fsIcon
 		bindEvent(this.player, Events.FULLSCREEN_CHANGED, (data) => {
 			if (data.status) {
-				this.icon = windowedIcon;
+				this.icon = wIcon;
 			}
 			else {
-				this.icon = fullscreenIcon;
+				this.icon = fsIcon;
 			}
 		})
 	}
