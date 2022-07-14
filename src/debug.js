@@ -11,6 +11,7 @@ import screenIcon from "./altIcons/screenIcon.svg";
 import layoutIcon from "./altIcons/layoutIcon.svg";
 import backwardIcon from "./altIcons/backwardIcon.svg";
 import forwardIcon from "./altIcons/forwardIcon.svg";
+import keyboardIcon from "./altIcons/keyboardIcon.svg";
 
 const initParams = {
 	customPluginContext: [
@@ -47,5 +48,8 @@ paella.loadManifest()
 
 		// forward 30 segonds
 		paella.addCustomPluginIcon("es.upv.paella.forwardButtonPlugin","forwardIcon",forwardIcon);
+
+		// keyboard icon
+		paella.addCustomPluginIcon("es.upv.paella.keyboardShortcutsHelp","keyboardIcon",keyboardIcon);
 	})
 	.catch(e => console.error(e));

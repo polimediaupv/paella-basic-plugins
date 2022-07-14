@@ -3,7 +3,7 @@ import {
 	createElementWithHtmlText
 } from 'paella-core';
 
-import KeyboardIcon from '../icons/keyboard.svg';
+import defaultKeyboardIcon from '../icons/keyboard.svg';
 import '../css/KeyboardShortcutsHelp.css';
 
 export default class KeyboardShortcutsHelpPlugin extends PopUpButtonPlugin {
@@ -13,7 +13,7 @@ export default class KeyboardShortcutsHelpPlugin extends PopUpButtonPlugin {
 	}
 
 	async load() {
-		this.icon = KeyboardIcon;
+		this.icon = this.player.getCustomPluginIcon(this.name,"keyboardIcon") || defaultKeyboardIcon;
 	}
 
 	get popUpType() {

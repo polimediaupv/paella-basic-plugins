@@ -260,6 +260,12 @@ Displays a list of available keyboard shortcuts, which is obtained from the acti
 
 **Exported as** `KeyboardHelpButtonPlugin`.
 
+**Icon customization data:**
+
+- Plugin identifier: `es.upv.paella.keyboardShortcutsHelp`
+- Icon names:
+    * `keyboardIcon`
+
 ### Find captions plugin
 
 Permite buscar un texto en los subtítulos del vídeo.
