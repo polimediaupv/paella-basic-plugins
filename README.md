@@ -148,6 +148,12 @@ Modifies the video playback speed. In the plugin configuration it is possible to
 
 **Exported as** `PlaybackRateButtonPlugin`.
 
+**Icon customization data:**
+
+- Plugin identifier: `es.upv.paella.playbackRateButton`
+- Icon names:
+    * `screenIcon`: screen icon, with filled background, to give contrast to the text of the selected playback rate.
+
 ### Captions selector plugin
 
 Allows you to select the subtitle track of the video. The plugin is able to detect in real time if the number of audio tracks has been modified, and updates to reflect these changes:

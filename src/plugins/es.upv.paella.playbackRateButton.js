@@ -21,7 +21,7 @@ export default class PlaybackRateButton extends MenuButtonPlugin {
 	}
 
     async load() {
-        this.icon = screenIcon;
+        this.icon = this.player.getCustomPluginIcon(this.name,"screenIcon") || screenIcon;
         this.title = "1x";
         this._rates = this.config.rates || [0.5, 0.75, 1, 1.25, 1.5, 2];
 

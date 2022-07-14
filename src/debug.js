@@ -32,5 +32,8 @@ paella.loadManifest()
 
 		// quality selector
 		paella.addCustomPluginIcon("es.upv.paella.qualitySelector","screenIcon",screenIcon);
+
+		// playback rate
+		paella.addCustomPluginIcon("es.upv.paella.playbackRateButton","screenIcon",screenIcon);
 	})
 	.catch(e => console.error(e));
