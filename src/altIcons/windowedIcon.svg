@@ -3,6 +3,6 @@
 <svg width="100%" height="100%" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
     <g id="Mesa-de-trabajo1" serif:id="Mesa de trabajo1" transform="matrix(0.125,0,0,0.125,0,0)">
         <rect x="0" y="0" width="512" height="512" style="fill:none;"/>
-        <path id="windowedIcon" d="M352.203,412.729L296,468.931L296,296L468.931,296L412.729,352.203L466.757,406.231L406.231,466.757L352.203,412.729ZM99.271,352.203L43.069,296L216,296L216,468.931L159.797,412.729L105.769,466.757L45.243,406.231L99.271,352.203ZM412.729,159.797L468.931,216L296,216L296,43.069L352.203,99.271L406.231,45.243L466.757,105.769L412.729,159.797ZM159.797,99.271L216,43.069L216,216L43.069,216L99.271,159.797L45.243,105.769L105.769,45.243L159.797,99.271Z"/>
+        <path id="windowedIcon-2" serif:id="windowedIcon 2" d="M99.271,352.203L43.069,296L216,296L216,468.931L159.797,412.729L105.769,466.757L45.243,406.231L99.271,352.203ZM412.729,159.797L468.931,216L296,216L296,43.069L352.203,99.271L406.231,45.243L466.757,105.769L412.729,159.797Z"/>
     </g>
 </svg>
