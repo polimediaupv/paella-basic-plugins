@@ -1,10 +1,10 @@
 
 import{ ButtonPlugin, createElementWithHtmlText, Events, bindEvent } from 'paella-core';
 
-import volumeHigh from '../icons/volume-high.svg';
-import volumeLow from '../icons/volume-low.svg';
-import volumeMid from '../icons/volume-mid.svg';
-import volumeMute from '../icons/volume-mute.svg';
+import defaultVolumeHighIcon from '../icons/volume-high.svg';
+import defaultVolumeMidIcon from '../icons/volume-mid.svg';
+import defaultVolumeLowIcon from '../icons/volume-low.svg';
+import defaultVolumeMuteIcon from '../icons/volume-mute.svg';
 
 import "../css/slider.css";
 
@@ -82,21 +82,25 @@ export default class VolumePlugin extends ButtonPlugin {
     }
 
     async updateIcon(vol) {
+        const volumeHighIcon = this.player.getCustomPluginIcon(this.name,"volumeHighIcon") || defaultVolumeHighIcon;
+        const volumeMidIcon = this.player.getCustomPluginIcon(this.name,"volumeMidIcon") || defaultVolumeMidIcon;
+        const volumeLowIcon = this.player.getCustomPluginIcon(this.name,"volumeLowIcon") || defaultVolumeLowIcon;
+        const volumeMuteIcon = this.player.getCustomPluginIcon(this.name,"volumeMuteIcon") || defaultVolumeMuteIcon;
         switch (true) {
         case vol===0:
-            this.icon = volumeMute;
+            this.icon = volumeMuteIcon;
             break;
         case vol>0 && vol<=0.3:
-            this.icon = volumeLow;
+            this.icon = volumeLowIcon;
             break;
         case vol>0.3 && vol<=0.6:
-            this.icon = volumeMid;
+            this.icon = volumeMidIcon;
             break;
         case vol>0.6:
-            this.icon = volumeHigh;
+            this.icon = volumeHighIcon;
             break;
         default:
-            this.icon = volumeHigh;
+            this.icon = volumeHighIcon;
         }
 
         if (this._sliderButton) {

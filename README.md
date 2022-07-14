@@ -78,6 +78,15 @@ Set the audio volume. This plugin only works on desktop platforms, as the volume
 
 **Exported as** `VolumeButtonPlugin`.
 
+**Icon customization data:**
+
+- Plugin identifier: `es.upv.paella.volumeButtonPlugin`
+- Icon names:
+    * `volumeHighIcon`: maximum volume level.
+    * `volumeMidIcon`: medium volume level.
+    * `volumeLowIcon`: low volume level.
+    * `volumeMuteIcon`: muted volume.
+
 ### Forward and backward buttons
 
 These are two independent button-type plugins, which advance or rewind the video by 30 seconds with a single click.
