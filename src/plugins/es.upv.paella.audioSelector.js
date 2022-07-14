@@ -22,7 +22,7 @@ export default class AudioSelectorPlugin extends MenuButtonPlugin {
     }
 
     async load() {
-        this.icon = screenIcon;
+        this.icon = this.player.getCustomPluginIcon(this.name,"screenIcon") || screenIcon;
 
         this._audioTracks = await this.player.videoContainer.streamProvider.getAudioTracks();
 

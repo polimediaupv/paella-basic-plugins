@@ -187,6 +187,12 @@ Allows you to select the subtitle track of the video. The plugin is able to dete
 
 **Exported as** `CaptionsSelectorButtonPlugin`.
 
+**Icon customization data:**
+
+- Plugin identifier: `es.upv.paella.audioSelector`
+- Icon names:
+    * `screenIcon`: screen icon, with filled background, to give contrast to the text of the selected audio track.
+
 ### Quality selector
 
 Allows to select the video quality level, in case the video supports several quality levels. The quality information displayed by the plugin is obtained from the `playerInstance.captionsCanvas` API.

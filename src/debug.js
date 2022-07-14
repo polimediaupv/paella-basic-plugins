@@ -51,5 +51,8 @@ paella.loadManifest()
 
 		// keyboard icon
 		paella.addCustomPluginIcon("es.upv.paella.keyboardShortcutsHelp","keyboardIcon",keyboardIcon);
+
+		// audio selector
+		paella.addCustomPluginIcon("es.upv.paella.audioSelector","screenIcon",screenIcon);
 	})
 	.catch(e => console.error(e));
