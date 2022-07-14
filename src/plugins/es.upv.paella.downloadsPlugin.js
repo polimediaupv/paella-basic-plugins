@@ -9,12 +9,13 @@ import '../css/DownloadsPlugin.css';
 import defaultDownloadIcon from '../icons/download.svg';
 
 export default class DownloadsPlugin extends PopUpButtonPlugin {
-    async load() {
-        this.icon = this.player.getCustomPluginIcon(this.name,"downloadIcon") || defaultDownloadIcon;
+    async isEnabled() {
+      const enabled = await super.isEnabled();
+      this._downloads = {};
 
+      if (enabled) {
         const { streams } = this.player.videoManifest;
-        this._downloads = {};
-
+  
         streams.forEach(s => {
             let streamDownloads = [];
             const { mp4 } = s.sources;
@@ -31,7 +32,14 @@ export default class DownloadsPlugin extends PopUpButtonPlugin {
             if (streamDownloads.length > 0) {
                 this._downloads[s.content] = streamDownloads;
             }
-        });
+        });  
+      }
+
+      return Object.keys(this._downloads).length > 0;
+    }
+    
+    async load() {
+        this.icon = this.player.getCustomPluginIcon(this.name,"downloadIcon") || defaultDownloadIcon;
     }
 
     async getContent() {
