@@ -294,3 +294,10 @@ Permite buscar un texto en los subtítulos del vídeo.
 ```
 
 **Exported as* `FindCaptionsButtonPlugin`.
+
+**Icon customization data:**
+
+- Plugin identifier: `es.upv.paella.findCaptionsPlugin`
+- Icon names:
+    * `findCaptionsIcon`
+

@@ -147,7 +147,7 @@ export default class FindCaptionsPlugin extends PopUpButtonPlugin {
     }
 
     async load() {
-        this.icon = searchIcon;
+        this.icon = this.player.getCustomPluginIcon(this.name,"findCaptionsIcon") || searchIcon;
         this._captionsCanvas = this.player.captionsCanvas;
 
         if (this.captions.length === 0) {

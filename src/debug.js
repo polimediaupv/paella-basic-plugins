@@ -13,6 +13,8 @@ import backwardIcon from "./altIcons/backwardIcon.svg";
 import forwardIcon from "./altIcons/forwardIcon.svg";
 import keyboardIcon from "./altIcons/keyboardIcon.svg";
 import downloadIcon from "./altIcons/downloadIcon.svg";
+import captionsIcon from "./altIcons/captionsIcon.svg";
+import findCaptionsIcon from './altIcons/findCaptionsIcon.svg';
 
 const initParams = {
 	customPluginContext: [
@@ -58,5 +60,8 @@ paella.loadManifest()
 
 		// download icon
 		paella.addCustomPluginIcon("es.upv.paella.downloadsPlugin","downloadIcon",downloadIcon);
+
+		// find captions icon
+		paella.addCustomPluginIcon("es.upv.paella.findCaptionsPlugin","findCaptionsIcon",findCaptionsIcon);
 	})
 	.catch(e => console.error(e));
