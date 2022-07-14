@@ -1,6 +1,5 @@
 import { MenuButtonPlugin, Events, bindEvent, PopUp } from 'paella-core';
 
-// TODO: Load captions icon
 import captionsPlugin from '../icons/captions_cc.svg';
 
 export default class CaptionsSelectorPlugin extends MenuButtonPlugin{
@@ -21,7 +20,7 @@ export default class CaptionsSelectorPlugin extends MenuButtonPlugin{
 	}
 
     async load() {
-        this.icon = captionsPlugin;
+        this.icon = this.player.getCustomPluginIcon(this.name,"captionsIcon") || captionsPlugin;
         this._captionsCanvas = this.player.captionsCanvas;
 
         if (this._captionsCanvas.captions.length==0) {

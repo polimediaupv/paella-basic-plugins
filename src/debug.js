@@ -63,5 +63,8 @@ paella.loadManifest()
 
 		// find captions icon
 		paella.addCustomPluginIcon("es.upv.paella.findCaptionsPlugin","findCaptionsIcon",findCaptionsIcon);
+
+		// captions icon
+		paella.addCustomPluginIcon("es.upv.paella.captionsSelectorPlugin","captionsIcon",captionsIcon);
 	})
 	.catch(e => console.error(e));

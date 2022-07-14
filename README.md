@@ -189,9 +189,10 @@ Allows you to select the subtitle track of the video. The plugin is able to dete
 
 **Icon customization data:**
 
-- Plugin identifier: `es.upv.paella.audioSelector`
+- Plugin identifier: `es.upv.paella.captionsSelectorPlugin`
 - Icon names:
-    * `screenIcon`: screen icon, with filled background, to give contrast to the text of the selected audio track.
+    * `captionsIcon`
+
 
 ### Quality selector
 
@@ -209,6 +210,13 @@ Allows to select the video quality level, in case the video supports several qua
 ```
 
 **Exported as** `QualitySelectorButtonPlugin`.
+
+**Icon customization data:**
+
+- Plugin identifier: `es.upv.paella.qualitySelector`
+- Icon names:
+    * `screenIcon`: screen icon, with filled background, to give contrast to the text of the selected video quality.
+
 
 ### Audio selector
 
@@ -228,9 +236,9 @@ Allows the user to change the active audio, in case the main audio stream suppor
 
 **Icon customization data:**
 
-- Plugin identifier: `es.upv.paella.qualitySelector`
+- Plugin identifier: `es.upv.paella.audioSelector`
 - Icon names:
-    * `screenIcon`: screen icon, with filled background, to give contrast to the text of the selected quality.
+    * `screenIcon`: screen icon, with filled background, to give contrast to the text of the selected audio track.
 
 ### Downloads plugin
 
@@ -293,7 +301,7 @@ Permite buscar un texto en los subtítulos del vídeo.
 }
 ```
 
-**Exported as* `FindCaptionsButtonPlugin`.
+**Exported as** `FindCaptionsButtonPlugin`.
 
 **Icon customization data:**
 
