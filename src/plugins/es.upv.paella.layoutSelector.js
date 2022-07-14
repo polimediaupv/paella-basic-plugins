@@ -28,7 +28,7 @@ export default class LayoutSelectorPlugin extends MenuButtonPlugin {
 	}
 	
 	async load() {
-		this.icon = presentationMode;
+		this.icon = this.player.getCustomPluginIcon(this.name, "layoutIcon") || presentationMode;
 	}
 	
 	async getMenu() {

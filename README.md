@@ -130,6 +130,12 @@ Allows you to change the active video layout.
 
 **Exported as** `LayoutSelectorButtonPlugin`.
 
+**Icon customization data:**
+
+- Plugin identifier: `es.upv.paella.layoutSelector`
+- Icon names:
+    * `layoutIcon`
+
 ### Playback rate button
 
 Modifies the video playback speed. In the plugin configuration it is possible to set the possible values. If this property is not included in the configuration, the plugin will use the default values:

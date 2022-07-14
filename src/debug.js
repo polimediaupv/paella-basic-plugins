@@ -8,6 +8,7 @@ import volumeMidIcon from "./altIcons/volumeMidIcon.svg";
 import volumeLowIcon from "./altIcons/volumeLowIcon.svg";
 import volumeMuteIcon from "./altIcons/volumeMuteIcon.svg";
 import screenIcon from "./altIcons/screenIcon.svg";
+import layoutIcon from "./altIcons/layoutIcon.svg";
 
 const initParams = {
 	customPluginContext: [
@@ -35,5 +36,8 @@ paella.loadManifest()
 
 		// playback rate
 		paella.addCustomPluginIcon("es.upv.paella.playbackRateButton","screenIcon",screenIcon);
+
+		// layout selector
+		paella.addCustomPluginIcon("es.upv.paella.layoutSelector","layoutIcon",layoutIcon);
 	})
 	.catch(e => console.error(e));
