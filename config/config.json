@@ -99,14 +99,17 @@
         "es.upv.paella.layoutSelector": {
             "enabled": true,
             "side": "right",
-            "parentContainer": "videoContainer"
+            "parentContainer": "videoContainer",
+            "menuTitle": "Layout selector"
         },
 
         "es.upv.paella.playbackRateButton": {
             "enabled": true,
             "side": "right",
-            "parentContainer": "videoContainer",
-            "rates": [0.75, 1, 1.5, 2]
+            "parentContainer_": "videoContainer",
+            "rates": [0.75, 1, 1.5, 2],
+            "menuTitle": "Playback Rate",
+            "showIcon": false
         },
 
         "es.upv.paella.vttManifestCaptionsPlugin": {

@@ -20,8 +20,18 @@ export default class PlaybackRateButton extends MenuButtonPlugin {
 		}
 	}
 
+    get dynamicWidth() {
+		return this.config.showIcon === false;
+	}
+
     async load() {
-        this.icon = this.player.getCustomPluginIcon(this.name,"screenIcon") || screenIcon;
+        if (this.config.showIcon === false) {
+
+        }
+        else {
+            this.icon = this.player.getCustomPluginIcon(this.name,"screenIcon") || screenIcon;
+        }
+
         this.title = "1x";
         this._rates = this.config.rates || [0.5, 0.75, 1, 1.25, 1.5, 2];
 
@@ -42,7 +52,7 @@ export default class PlaybackRateButton extends MenuButtonPlugin {
         return this._rates.map(r => getItem(r));
     }
 
-    get titleSize() { return "small"; }
+    get titleSize() { return this.config.showIcon === false ? "large" : "small"; }
 
     async itemSelected(itemData) {
         await this.player.videoContainer.setPlaybackRate(itemData.id);
