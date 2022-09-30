@@ -34,10 +34,14 @@ export default class KeyboardShortcutsHelpPlugin extends PopUpButtonPlugin {
 		return key;
 	}
 
+	get menuTitle() {
+		return this.config.menuTitle || 'Keyboard shortucts'
+	}
+
 	async getContent() {
 		const content = createElementWithHtmlText(`
           <div class="keyboardshortcutshelp-plugin">
-            
+            <div class="menu-button-title">${ this.player.translate(this.menuTitle) }</div>
           </div>
         `);
 
