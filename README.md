@@ -155,6 +155,7 @@ Modifies the video playback speed. In the plugin configuration it is possible to
     "es.upv.paella.playbackRateButton": {
         "enabled": true,
         "side": "right",
+        "showIcon": true,
         "parentContainer": "videoContainer",
         "rates": [0.75, 1, 1.5, 2]
     },
