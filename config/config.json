@@ -147,6 +147,12 @@
             "enabled": true,
             "side": "right",
             "description": "Search in captions"
+        },
+
+        "es.upv.paella.customTimeProgressIndicator": {
+            "enabled": true,
+            "textSize": "large",
+            "showTotal": false
         }
     }
 }

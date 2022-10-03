@@ -288,7 +288,7 @@ Displays a list of available keyboard shortcuts, which is obtained from the acti
 
 ### Find captions plugin
 
-Permite buscar un texto en los subtítulos del vídeo.
+Allows you to search for text in the subtitles of the video.
 
 ```json
 {
@@ -308,4 +308,20 @@ Permite buscar un texto en los subtítulos del vídeo.
 - Plugin identifier: `es.upv.paella.findCaptionsPlugin`
 - Icon names:
     * `findCaptionsIcon`
+
+### Custom time progress indicator
+
+Allows to add a video elapsed time indicator as a non-interactive button type plugin.
+
+```json
+{
+    "es.upv.paella.customTimeProgressIndicator": {
+        "enabled": true,
+        "textSize": "large",    // "small", "medium" or "large"
+        "showTotal": false
+    }
+}
+```
+
+**Exported as** `CustomTimeProgressIndicatorPlugin`
 
