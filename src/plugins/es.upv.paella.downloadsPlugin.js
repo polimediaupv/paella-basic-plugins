@@ -22,9 +22,9 @@ export default class DownloadsPlugin extends PopUpButtonPlugin {
             if (mp4) {
                 mp4.forEach(v => {
                     streamDownloads.push({
-                        id: `${s.content}_${v.res.w}_${v.res.h}`,
+                        id: `${s.content}_${v.res?.w || 0}_${v.res?.h || 0}`,
                         src: v.src,
-                        res: v.res,
+                        res: v.res || { w:0, h:0 },
                         mimetype: v.mimetype
                     });
                 });
