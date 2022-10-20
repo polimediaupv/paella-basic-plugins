@@ -157,7 +157,8 @@ Modifies the video playback speed. In the plugin configuration it is possible to
         "side": "right",
         "showIcon": true,
         "parentContainer": "videoContainer",
-        "rates": [0.75, 1, 1.5, 2]
+        "rates": [0.75, 1, 1.5, 2],
+        "menuTitle": "Playback Rate"
     },
     ...
 },
@@ -180,7 +181,8 @@ Allows you to select the subtitle track of the video. The plugin is able to dete
     "es.upv.paella.captionsSelectorPlugin": {
         "enabled": true,
         "side": "right",
-        "parentContainer": "playbackBar"
+        "parentContainer": "playbackBar",
+        "menuTitle": "Available Captions"
     },
     ...
 }
@@ -204,7 +206,8 @@ Allows to select the video quality level, in case the video supports several qua
    "es.upv.paella.qualitySelector": {
         "enabled": true,
         "side": "right",
-        "parentContainer": "videoContainer"
+        "parentContainer": "videoContainer",
+        "menuTitle": "Video Quality"
     },
     ... 
 }
@@ -273,7 +276,8 @@ Displays a list of available keyboard shortcuts, which is obtained from the acti
     "es.upv.paella.keyboardShortcutsHelp": {
         "enabled": true,
         "side": "right",
-        "description": "Keyboard Shortcuts"
+        "description": "Keyboard Shortcuts",
+        "menuTitle": "Keyboard Shortcuts"
     },
     ...
 }
