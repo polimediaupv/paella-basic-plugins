@@ -4,7 +4,7 @@ import defaultForwardIcon from '../icons/forward-30-s.svg';
 
 export default class ForwardButtonPlugin extends ButtonPlugin {
 	getAriaLabel() {
-        return "Forward 30 seconds";
+        return this.player.translate("Forward $1 seconds",[this.config.time]);
     }
 
     getDescription() {
@@ -14,13 +14,25 @@ export default class ForwardButtonPlugin extends ButtonPlugin {
 	async getDictionaries() {
 		return {
 			es: {
-				"Forward 30 seconds": "Ir hacia adelante 30 segundos"
+				"Forward $1 seconds": "Ir hacia adelante $1 segundos"
 			}
 		}
 	}
 
+	async isEnabled() {
+		const enabled = await super.isEnabled();
+		this.time = this.config.time || 30;
+		return enabled;
+	}
+
 	async load() {
 		this.icon = this.player.getCustomPluginIcon(this.name,"forwardIcon") || defaultForwardIcon;
+		setTimeout(() => {
+			const textIcon = this.iconElement.getElementsByClassName('time-text')[0];
+			if (textIcon) {
+				textIcon.innerHTML = this.time + 's';
+			}
+		}, 100);
 	}
 	
 	async action() {
