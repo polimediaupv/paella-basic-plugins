@@ -28,10 +28,10 @@ export default class BackwardButtonPlugin extends ButtonPlugin {
 	async load() {
 		this.icon = this.player.getCustomPluginIcon(this.name,"backwardIcon") || defaultBackwardIcon;
 		setTimeout(() => {
-			const textIcon = this.iconElement.getElementsByClassName('time-text')[0];
-			if (textIcon) {
-				textIcon.innerHTML = this.time + 's';
-			}
+			Array.from(this.iconElement.getElementsByClassName('time-text'))
+				.forEach(textIcon => {
+					textIcon.innerHTML = this.time + 's';
+				})
 		}, 100);
 	}
 	

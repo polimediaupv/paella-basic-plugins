@@ -89,7 +89,7 @@ Set the audio volume. This plugin only works on desktop platforms, as the volume
 
 ### Forward and backward buttons
 
-These are two independent button-type plugins, which advance or rewind the video by 30 seconds with a single click.
+These are two independent button-type plugins, which advance or rewind the video by 30 seconds (by default) with a single click. The seeked time can be configured using the `time` attribute.
 
 ```json
 {
@@ -97,13 +97,15 @@ These are two independent button-type plugins, which advance or rewind the video
         "es.upv.paella.forwardButtonPlugin": {
             "enabled": true,
             "side": "left",
-            "order": 2
+            "order": 2,
+            "time": 30
         },
 
         "es.upv.paella.backwardButtonPlugin": {
             "enabled": true,
             "side": "left",
-            "order": 1
+            "order": 1,
+            "time": 30
         },
         ...
     }
@@ -121,6 +123,33 @@ These are two independent button-type plugins, which advance or rewind the video
 - Plugin identifier: `es.upv.paella.backwardButtonPlugin`
 - Icon names:
     * `backwardIcon`
+
+**IMPORTANT NOTE ABOUT ICON CUSTOMIZATION:** The icons for these plugins contain dynamic text within the SVG file. This allows you to modify the icon depending on the amount of time you have set for the jump. To maintain this feature, it's important that if you customize the SVG using the icon customization API, the time is specified by a text tag with the `time-text` class.
+
+```svg
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <style>
+        .time-text {
+            font: 25px sans-serif;
+        }
+    </style>
+    <g id="Mesa-de-trabajo1" serif:id="Mesa de trabajo1" transform="matrix(0.125,0,0,0.125,0,0)">
+        <rect x="0" y="0" width="512" height="512" style="fill:none;"/>
+        <g id="backwardIcon">
+            <g transform="matrix(0.301682,-0.953409,0.953409,0.301682,-33.639,434.074)">
+                ...
+            </g>
+            <g transform="matrix(8,0,0,8,-12.5937,20.6629)">
+
+                <!-- Using this text with the class time-text, the plugin will be able to change the time label in the icon -->
+                <text class="time-text" x="0" y="54">s</text>
+            </g>
+        </g>
+    </g>
+</svg>
+```
 
 ### Layout selector
 

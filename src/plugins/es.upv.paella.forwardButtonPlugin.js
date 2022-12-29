@@ -28,10 +28,10 @@ export default class ForwardButtonPlugin extends ButtonPlugin {
 	async load() {
 		this.icon = this.player.getCustomPluginIcon(this.name,"forwardIcon") || defaultForwardIcon;
 		setTimeout(() => {
-			const textIcon = this.iconElement.getElementsByClassName('time-text')[0];
-			if (textIcon) {
-				textIcon.innerHTML = this.time + 's';
-			}
+			Array.from(this.iconElement.getElementsByClassName('time-text'))
+				.forEach(textIcon => {
+					textIcon.innerHTML = this.time + 's';
+				});
 		}, 100);
 	}
 	
