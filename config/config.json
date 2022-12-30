@@ -88,14 +88,16 @@
             "enabled": true,
             "side": "left",
             "order": 2,
-            "time": 30
+            "time": 30,
+            "suffix": true
         },
 
         "es.upv.paella.backwardButtonPlugin": {
             "enabled": true,
             "side": "left",
             "order": 1,
-            "time": 30
+            "time": 30,
+            "suffix": true
         },
 
         "es.upv.paella.layoutSelector": {
