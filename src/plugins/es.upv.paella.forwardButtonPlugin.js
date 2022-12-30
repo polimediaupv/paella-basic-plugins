@@ -39,6 +39,6 @@ export default class ForwardButtonPlugin extends ButtonPlugin {
 	
 	async action() {
 		const currentTime = await this.player.videoContainer.currentTime();
-		this.player.videoContainer.setCurrentTime(currentTime + 30);
+		this.player.videoContainer.setCurrentTime(currentTime + this.time);
 	}
 }
