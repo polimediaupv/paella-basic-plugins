@@ -32,8 +32,10 @@ export default class PlaybackRateButton extends MenuButtonPlugin {
             this.icon = this.player.getCustomPluginIcon(this.name,"screenIcon") || screenIcon;
         }
 
-        this.title = "1x";
-        this._rates = this.config.rates || [0.5, 0.75, 1, 1.25, 1.5, 2];
+        const currentRate = await this.player.videoContainer.playbackRate();
+
+        this.title = `${currentRate}x`;
+        this._rates = this.config.rates || [0.5, 0.75, 1, 1.25, 1.5, 2];
 
         this.player.bindEvent(Events.PLAYBACK_RATE_CHANGED, (params) => {
             this.title = params.newPlaybackRate + "x";

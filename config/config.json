@@ -3,6 +3,57 @@
     "manifestFileName": "data.json",
 
     "defaultLayout": "presenter-presentation",
+
+
+    "progressIndicator": {
+        "showTotal": true,
+        "parentContainer": "progressIndicator",
+        "side": "left",
+        "visible": true,
+        "showHandler": true,
+        "hideHandlerOnMouseOut": true,
+        "showRemainingProgress": true
+    },
+
+    "videoContainer": {
+        "overPlaybackBar": true,
+
+        "restorePlaybackRate": true,
+        "restoreVolume": true,
+        "restoreLastTime": {
+            "enabled": true,
+            "remainingSeconds": 5
+        },
+
+        "cookieConsentType": "necessary"
+    },
+
+    "cookieConsent": [
+        {
+            "type": "necessary",
+            "title": "Necessary",
+            "description": "Cookies required for proper operation.",
+            "required": true
+        },
+        {
+            "type": "preferences",
+            "title": "Preferences",
+            "description": "Cookies used to store user preferences that can be configured in the application. If disabled, some of these features may not work properly.",
+            "required": false
+        },
+        {
+            "type": "analytical",
+            "title": "Analytical",
+            "description": "Cookies used to analyze user behavior and thus provide clues about future improvements in the application.",
+            "required": false
+        },
+        {
+            "type": "marketing",
+            "title": "Marketing",
+            "description": "Cookies used to better tailor ads to user preferences.",
+            "required": false
+        }
+    ],
     
     "plugins": {
         "es.upv.paella.testPlugin": {

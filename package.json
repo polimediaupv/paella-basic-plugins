@@ -33,6 +33,6 @@
 		"webpack-dev-server": "^4.7.3"
 	},
 	"dependencies": {
-		"paella-core": "^1.8.6"
+		"paella-core": "^1.18.0"
 	}
 }
