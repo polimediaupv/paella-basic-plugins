@@ -6,7 +6,7 @@ export default class CustomTimeProgressIndicator extends ButtonPlugin {
         const showTotal = this.config.showTotal === undefined ? true : this.config.showTotal;
         const updateTime = (time) => {
             const current = utils.secondsToTime(time);
-            this.title = showTotal ? `${current}/${utils.secondsToTime(totalDuration)}` : current;
+            this.title = showTotal ? `${current} / ${utils.secondsToTime(totalDuration)}` : current;
         }
         
         updateTime(0);
