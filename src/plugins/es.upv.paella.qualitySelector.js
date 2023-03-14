@@ -11,14 +11,6 @@ export default class QualitySelectorPlugin extends MenuButtonPlugin {
         return this.getAriaLabel();
     }
 
-	async getDictionaries() {
-		return {
-			es: {
-				"Select video quality": "Seleccionar la calidad de reproducción del vídeo"
-			}
-		}
-	}
-
     async isEnabled() {
         if (!(await super.isEnabled())) {
             return false;

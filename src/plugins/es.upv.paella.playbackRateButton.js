@@ -12,14 +12,6 @@ export default class PlaybackRateButton extends MenuButtonPlugin {
         return this.getAriaLabel();
     }
 
-	async getDictionaries() {
-		return {
-			es: {
-				"Switch the playback speed": "Cambiar la velocidad de reproducción"
-			}
-		}
-	}
-
     get dynamicWidth() {
 		return this.config.showIcon === false;
 	}

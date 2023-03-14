@@ -11,14 +11,6 @@ export default class LayoutSelectorPlugin extends MenuButtonPlugin {
         return this.getAriaLabel();
     }
 
-	async getDictionaries() {
-		return {
-			es: {
-				"Switch the video layout": "Cambiar la disposición de los vídeos"
-			}
-		}
-	}
-
 	async isEnabled() {
 		if (!(await super.isEnabled())) {
 			return false;

@@ -11,15 +11,7 @@ export default class PauseButtonPlugin extends ButtonPlugin {
     getDescription() {
         return this.getAriaLabel();
     }
-
-	async getDictionaries() {
-		return {
-			es: {
-				"Toggle fullscreen": "Cambiar modo de pantalla completa"
-			}
-		}
-	}
-
+	
 	async isEnabled() {
 		const enabled = await super.isEnabled()
 		return enabled && this.player.isFullScreenSupported()

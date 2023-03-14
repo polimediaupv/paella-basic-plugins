@@ -10,14 +10,6 @@ export default class BackwardButtonPlugin extends ButtonPlugin {
     getDescription() {
         return this.getAriaLabel();
     }
-
-	async getDictionaries() {
-		return {
-			es: {
-				"Backward $1 seconds": "Volver hacia atrás $1 segundos"
-			}
-		}
-	}
 	
 	async isEnabled() {
 		const enabled = await super.isEnabled();

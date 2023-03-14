@@ -1,4 +1,3 @@
-import dictionaries from './dictionaries';
 
 import AudioSelectorButton from './plugins/es.upv.paella.audioSelector';
 import BackwardButton from './plugins/es.upv.paella.backwardButtonPlugin';
@@ -17,8 +16,6 @@ import CustomTimeProgressIndicator from './plugins/es.upv.paella.customTimeProgr
 export default function getBasicPluginsContext() {
     return require.context("./plugins", true, /\.js/)
 }
-
-export const basicPluginsDict = dictionaries;
 
 export const AudioSelectorButtonPlugin = AudioSelectorButton;
 export const BackwardButtonPlugin = BackwardButton;

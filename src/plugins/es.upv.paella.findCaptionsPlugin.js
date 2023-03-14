@@ -11,15 +11,6 @@ import '../css/FindCaptionsPlugin.css';
 import searchIcon from '../icons/binoculars.svg';
 
 export default class FindCaptionsPlugin extends PopUpButtonPlugin {
-    async getDictionaries() {
-		return {
-			es: {
-				"Search": "Buscar",
-                "Search in captions": "Buscar en subtítulos",
-                "No results found": "No se han encontrado resultados"
-			}
-		}
-	}
 
     async getContent() {
         const placeholderText = this.player.translate("Search");

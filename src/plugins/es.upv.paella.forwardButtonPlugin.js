@@ -11,14 +11,6 @@ export default class ForwardButtonPlugin extends ButtonPlugin {
         return this.getAriaLabel();
     }
 
-	async getDictionaries() {
-		return {
-			es: {
-				"Forward $1 seconds": "Ir hacia adelante $1 segundos"
-			}
-		}
-	}
-
 	async isEnabled() {
 		const enabled = await super.isEnabled();
 		this.time = this.config.time || 30;

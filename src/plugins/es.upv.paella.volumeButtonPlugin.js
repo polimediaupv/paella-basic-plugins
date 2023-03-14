@@ -69,14 +69,6 @@ export default class VolumePlugin extends ButtonPlugin {
         return this.getAriaLabel();
     }
 
-	async getDictionaries() {
-		return {
-			es: {
-				"Change volume": "Cambiar el volumen del audio"
-			}
-		}
-	}
-
     get className() {
         return "volume-button";
     }

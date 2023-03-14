@@ -11,14 +11,6 @@ export default class CaptionsSelectorPlugin extends MenuButtonPlugin{
         return this.getAriaLabel();
     }
 
-	async getDictionaries() {
-		return {
-			es: {
-				"Select captions": "Seleccionar subtítulos"
-			}
-		}
-	}
-
     async load() {
         this.icon = this.player.getCustomPluginIcon(this.name,"captionsIcon") || captionsPlugin;
         this._captionsCanvas = this.player.captionsCanvas;
