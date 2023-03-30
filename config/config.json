@@ -7,7 +7,7 @@
 
     "progressIndicator": {
         "showTotal": true,
-        "parentContainer": "progressIndicator",
+        "parentContainer": "buttonArea",
         "side": "left",
         "visible": true,
         "showHandler": true,
@@ -102,6 +102,28 @@
                 }
             }
         },
+
+        "es.upv.paella.hlsLiveVideoFormat": {
+            "enabled": true,
+            "order": 0,
+            "enableCache": true,
+            "hlsConfig": {
+                "enableWorker": true,
+                "maxBufferLength": 1,
+                "liveBackBufferLength": 0,
+                "liveSyncDuration": 0,
+                "liveMaxLatencyDuration": 5,
+                "liveDurationInfinity": true,
+                "highBufferWatchdogPeriod": 1
+            },
+            "corsConfig": {
+                "withCredentials": false,
+                "requestHeaders": {
+                    "Access-Control-Allow-Credentials": false
+                }
+            }
+        },
+
         "es.upv.paella.mp4VideoFormat": {
             "enabled": true,
             "order": 1
@@ -208,6 +230,14 @@
             "enabled": true,
             "textSize": "large",
             "showTotal": false
+        },
+
+        "es.upv.paella.liveStreamingProgressIndicatorPlugin": {
+            "enabled": true,
+            "layer": "foreground",
+            "side": "left",
+            "margin": 10,
+            "textColor": "red"
         }
     }
 }
