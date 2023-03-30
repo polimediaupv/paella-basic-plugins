@@ -1,6 +1,12 @@
 import { ButtonPlugin, Events, utils } from "paella-core";
 
 export default class CustomTimeProgressIndicator extends ButtonPlugin {
+    async isEnabled() {
+        const e = await super.isEnabled();
+
+        return e && (this.player.videoManifest.metadata?.visibleTimeLine ?? true);
+    }
+
     async load() {
         const totalDuration = await this.player.videoContainer.duration();
         const showTotal = this.config.showTotal === undefined ? true : this.config.showTotal;
