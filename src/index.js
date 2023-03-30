@@ -12,6 +12,7 @@ import PlaybackRateButton from './plugins/es.upv.paella.playbackRateButton';
 import QualitySelectorButton from './plugins/es.upv.paella.qualitySelector';
 import VolumeButton from './plugins/es.upv.paella.volumeButtonPlugin';
 import CustomTimeProgressIndicator from './plugins/es.upv.paella.customTimeProgressIndicator';
+import LiveStreamingProgressIndicator from './plugins/es.upv.paella.liveStreamingProgressIndicator';
 
 export default function getBasicPluginsContext() {
     return require.context("./plugins", true, /\.js/)
@@ -30,3 +31,4 @@ export const PlaybackRateButtonPlugin = PlaybackRateButton;
 export const QualitySelectorButtonPlugin = QualitySelectorButton;
 export const VolumeButtonPlugin = VolumeButton;
 export const CustomTimeProgressIndicatorPlugin = CustomTimeProgressIndicator;
+export const LiveStreamingProgressIndicatorPlugin = LiveStreamingProgressIndicator;

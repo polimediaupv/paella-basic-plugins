@@ -359,3 +359,22 @@ Allows to add a video elapsed time indicator as a non-interactive button type pl
 
 **Exported as** `CustomTimeProgressIndicatorPlugin`
 
+### Live streaming progress indicator
+
+Displays a `live streaming` text above the timeline bar, when the video is a live event.
+
+```json
+{
+    "es.upv.paella.liveStreamingProgressIndicator": {
+        "enabled": true,
+        "layer": "foreground",
+        "side": "left",
+        "margin": 10,
+        "textColor": "#AA0000",
+        "circleColor": "#FF0000"
+    }
+}
+```
+
+**Exported as** `LiveStreamingProgressIndicatorPlugin`
+

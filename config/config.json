@@ -232,12 +232,13 @@
             "showTotal": false
         },
 
-        "es.upv.paella.liveStreamingProgressIndicatorPlugin": {
+        "es.upv.paella.liveStreamingProgressIndicator": {
             "enabled": true,
             "layer": "foreground",
             "side": "left",
             "margin": 10,
-            "textColor": "red"
+            "textColor": "#AA0000",
+            "circleColor": "#FF0000"
         }
     }
 }
