@@ -2,10 +2,10 @@
     "Select the active audio track": "Select the active audio track",
     "Toggle audio mute": "Toggle audio mute",
     "Toggle play/pause": "Toggle play/pause",
-    "Toggle Captions": "Toggle Captions",
+    "Toggle captions": "Toggle captions",
     "Volume up 10%": "Volume up 10%",
     "Volume down 10%": "Volume down 10%",
-    "Close Pop Up": "Close Pop Up",
+    "Close pop-up": "Close pop-up",
     "Decrease playback speed": "Decrease playback speed",
     "Increase playback speed": "Increase playback speed",
     "Select captions": "Select captions",
@@ -13,10 +13,10 @@
     "Search": "Search",
     "Search in captions": "Search in captions",
     "No results found": "No results found",
-    "Forward $1 seconds": "Forward $1 seconds",
+    "Go forward $1 seconds": "Go forward $1 seconds",
     "Toggle fullscreen": "Toggle fullscreen",
-    "Switch the video layout": "Switch the video layout",
-    "Switch the playback speed": "Switch the playback speed",
-    "Select video quality": "Select video quality",
-    "Change volume": "Change volume"
+    "Video layout": "Video layout",
+    "Playback rate": "Playback rate",
+    "Video quality": "Video quality",
+    "Volume": "Volume"
 }

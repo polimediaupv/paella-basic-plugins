@@ -62,7 +62,7 @@ function buildSlider() {
 
 export default class VolumePlugin extends ButtonPlugin {
     getAriaLabel() {
-        return "Change volume";
+        return "Volume";
     }
 
     getDescription() {

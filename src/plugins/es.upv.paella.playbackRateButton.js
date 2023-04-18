@@ -5,7 +5,7 @@ import '../css/playbackRate.css';
 
 export default class PlaybackRateButton extends MenuButtonPlugin {
     getAriaLabel() {
-        return "Switch the playback speed";
+        return "Playback rate";
     }
 
     getDescription() {

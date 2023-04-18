@@ -4,7 +4,7 @@ import presentationMode from '../icons/presentation-mode.svg';
 
 export default class LayoutSelectorPlugin extends MenuButtonPlugin {
 	getAriaLabel() {
-        return "Switch the video layout";
+        return "Video layout";
     }
 
     getDescription() {

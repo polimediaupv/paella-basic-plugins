@@ -4,7 +4,7 @@ import defaultForwardIcon from '../icons/forward-30-s.svg';
 
 export default class ForwardButtonPlugin extends ButtonPlugin {
 	getAriaLabel() {
-        return this.player.translate("Forward $1 seconds",[this.config.time]);
+        return this.player.translate("Go forward $1 seconds",[this.config.time]);
     }
 
     getDescription() {

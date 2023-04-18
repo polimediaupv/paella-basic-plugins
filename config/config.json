@@ -137,7 +137,7 @@
         "es.upv.paella.playPauseButton": {
             "enabled": true,
             "order": 0,
-            "description": "Play and pause button"
+            "description": "Play/pause"
         },
         "es.upv.paella.fullscreenButton": {
             "enabled": true,
@@ -217,7 +217,7 @@
             "enabled": true,
             "parentContainer": "videoContainer",
             "order": 80,
-            "description": "Keyboard Shortcuts"
+            "description": "Keyboard shortcuts"
         },
 
         "es.upv.paella.findCaptionsPlugin": {

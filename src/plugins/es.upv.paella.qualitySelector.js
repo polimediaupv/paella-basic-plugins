@@ -4,7 +4,7 @@ import defaultScreenIcon from '../icons/screen.svg';
 
 export default class QualitySelectorPlugin extends MenuButtonPlugin {
     getAriaLabel() {
-        return "Select video quality";
+        return "Video quality";
     }
 
     getDescription() {
