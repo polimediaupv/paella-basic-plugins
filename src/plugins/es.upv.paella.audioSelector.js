@@ -12,6 +12,12 @@ export default class AudioSelectorPlugin extends MenuButtonPlugin {
         return this.getAriaLabel();
     }
 
+    get dynamicWidth() {
+        return this.config.showIcon === false;
+    }
+
+    get titleSize() { return this.config.showIcon === false ? "large" : "small"; }
+
     async isEnabled() {
         if (!(await super.isEnabled())) {
             return false;
@@ -22,7 +28,12 @@ export default class AudioSelectorPlugin extends MenuButtonPlugin {
     }
 
     async load() {
-        this.icon = this.player.getCustomPluginIcon(this.name,"screenIcon") || screenIcon;
+        if (this.config.showIcon === false) {
+
+        }
+        else {
+            this.icon = this.player.getCustomPluginIcon(this.name,"screenIcon") || screenIcon;
+        }
 
         this._audioTracks = await this.player.videoContainer.streamProvider.getAudioTracks();
 
@@ -34,7 +45,7 @@ export default class AudioSelectorPlugin extends MenuButtonPlugin {
         const result = this._audioTracks.map(track => {
             return {
                 id: track.id,
-                title: track.name || track.language,
+                title: this.player.translate(track.name) || this.player.translate(track.language),
                 data: track,
                 selected: track === current
             }

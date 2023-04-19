@@ -208,7 +208,9 @@
 
         "es.upv.paella.audioSelector": {
             "enabled": true,
-            "side": "right"
+            "side": "right",
+            "menuTitle": "Audio track",
+            "showIcon": false
         },
 
         "es.upv.paella.defaultShortcuts": {
