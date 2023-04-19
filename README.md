@@ -160,12 +160,15 @@ Allows you to change the active video layout.
     "plugins": {
         "es.upv.paella.layoutSelector": {
             "enabled": true,
-            "side": "right"
+            "side": "right",
+            "showIcons": true
         },
         ...
     }
 }
 ```
+
+The "showIcons" (paella-basic-plugins >= 1.26.1) option allows you to show or hide the icons defined for each layout. If the icons are not shown, the title of the layout will be displayed. If this option is not specified, the default value is `true`.
 
 **Exported as** `LayoutSelectorButtonPlugin`.
 

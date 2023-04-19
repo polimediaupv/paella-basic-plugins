@@ -177,7 +177,8 @@
             "enabled": true,
             "side": "right",
             "parentContainer": "videoContainer",
-            "menuTitle": "Layout selector"
+            "menuTitle": "Layout selector",
+            "showIcons": false
         },
 
         "es.upv.paella.playbackRateButton": {

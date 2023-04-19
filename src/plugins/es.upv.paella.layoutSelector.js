@@ -21,17 +21,18 @@ export default class LayoutSelectorPlugin extends MenuButtonPlugin {
 	
 	async load() {
 		this.icon = this.player.getCustomPluginIcon(this.name, "layoutIcon") || presentationMode;
+		this._showIcons = this.config.showIcons ?? true;
 	}
 	
 	async getMenu() {
 		const contentSettings = this.player.videoContainer.validContentSettings;
 		return Promise.all(await contentSettings.map(async item => {
 			const configPath = utils.joinPath([this.player.configResourcesUrl, item.icon]);
-			const icon = await utils.loadSvgIcon(configPath)
+			const icon = this._showIcons && await utils.loadSvgIcon(configPath) || null;
 			return {
 				id: item.id,
 				title: item.title,
-				icon: icon,
+				icon,
 				selected: this.player.videoContainer.layoutId === item.id
 			}
 		}));
