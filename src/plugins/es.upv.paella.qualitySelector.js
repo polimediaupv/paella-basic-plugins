@@ -11,6 +11,12 @@ export default class QualitySelectorPlugin extends MenuButtonPlugin {
         return this.getAriaLabel();
     }
 
+    get dynamicWidth() {
+        return this.config.showIcon === false;
+    }
+
+    get titleSize() { return this.config.showIcon === false ? "large" : "small"; }
+
     async isEnabled() {
         if (!(await super.isEnabled())) {
             return false;
@@ -22,7 +28,12 @@ export default class QualitySelectorPlugin extends MenuButtonPlugin {
     }
 
     async load() {
-        this.icon = this.player.getCustomPluginIcon("es.upv.paella.qualitySelector","screenIcon") || defaultScreenIcon;
+        if (this.config.showIcon === false) {
+
+        }
+        else {
+            this.icon = this.player.getCustomPluginIcon("es.upv.paella.qualitySelector","screenIcon") || defaultScreenIcon;
+        }
 
         await this.updateQualityLabel();
     }
@@ -61,8 +72,6 @@ export default class QualitySelectorPlugin extends MenuButtonPlugin {
         await this.player.videoContainer.streamProvider.setQuality(itemData.data);
         this.updateQualityLabel();
     }
-
-    get titleSize() { return "small"; }
 
     get buttonType() {
         return "radio";

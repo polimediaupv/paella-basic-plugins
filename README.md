@@ -239,7 +239,8 @@ Allows to select the video quality level, in case the video supports several qua
         "enabled": true,
         "side": "right",
         "parentContainer": "videoContainer",
-        "menuTitle": "Video Quality"
+        "menuTitle": "Video Quality",
+        "showIcon": false
     },
     ... 
 }
