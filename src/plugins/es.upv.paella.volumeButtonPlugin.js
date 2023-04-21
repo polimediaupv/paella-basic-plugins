@@ -10,18 +10,22 @@ import "../css/slider.css";
 
 function buildSlider() {
     this.sliderContainer.innerHTML = "";
-    const slider = createElementWithHtmlText(`
+    const volumeSlider = createElementWithHtmlText(`
         <div class="volume-slider">
-            <div class="volume-slider-button"></div>
+            <div class="volume-slider-fill"></div>
+            <div class="volume-slider-empty"></div>
         </div>`, this.sliderContainer);
     let mouseDown = false;
-    const sliderButton = slider.getElementsByClassName('volume-slider-button')[0];
-    sliderButton.style.left = `${ this._prevVolume * 100 }%`;
-    this._sliderButton = sliderButton;
+    const sliderFill = volumeSlider.getElementsByClassName('volume-slider-fill')[0];
+    const sliderEmpty = volumeSlider.getElementsByClassName('volume-slider-empty')[0];
+    sliderFill.style.width = "50%";
+    sliderEmpty.style.width = "50%";
+    this._sliderFill = sliderFill;
+    this._sliderEmpty = sliderEmpty;
 
     const setVolume = async (offsetX) => {
-        const offset = 10;
-        const { offsetWidth } = this.sliderContainer;
+        const offset = 4;
+        const { offsetWidth } = volumeSlider;
         let newVolume = offsetX * 100 / offsetWidth;
         if (newVolume < offset) {
             newVolume = 0;
@@ -33,22 +37,22 @@ function buildSlider() {
         await this.player.videoContainer.setVolume(newVolume);
     }
 
-    this.sliderContainer.addEventListener("mousedown", async (evt) => {
+    volumeSlider.addEventListener("mousedown", async (evt) => {
         mouseDown = true;
         await setVolume(evt.offsetX);
     });
 
-    this.sliderContainer.addEventListener("mousemove", async (evt) => {
+    volumeSlider.addEventListener("mousemove", async (evt) => {
         if (mouseDown) {
             await setVolume(evt.offsetX);                    
         }
     });
 
-    this.sliderContainer.addEventListener("mouseleave", () => {
+    volumeSlider.addEventListener("mouseleave", () => {
         mouseDown = false;
     });
 
-    this.sliderContainer.addEventListener("mouseup", () => {
+    volumeSlider.addEventListener("mouseup", () => {
         mouseDown = false;
     });
 
@@ -95,8 +99,24 @@ export default class VolumePlugin extends ButtonPlugin {
             this.icon = volumeHighIcon;
         }
 
-        if (this._sliderButton) {
-            this._sliderButton.style.left = `${ vol * 100 }%`;
+        if (this._sliderFill) {
+            this._sliderFill.style.width = `${ vol * 100}px`;
+        }
+        if (vol > 0.95) {
+            this._sliderFill.classList.add('fill-100');
+        }
+        else {
+            this._sliderFill.classList.remove('fill-100');
+        }
+
+        if (this._sliderEmpty) {
+            this._sliderEmpty.style.width = `${ 100 - vol * 100}px`;
+        }
+        if (vol < 0.05) {
+            this._sliderEmpty.classList.add('empty-100');
+        }
+        else {
+            this._sliderEmpty.classList.remove('empty-100');
         }
     }
 
@@ -111,9 +131,10 @@ export default class VolumePlugin extends ButtonPlugin {
     
     async load() {
         this._prevVolume = await this.player.videoContainer.volume();
+        buildSlider.apply(this);
+        
         this.updateIcon(this._prevVolume);
 
-        buildSlider.apply(this);
     }
 
     async mouseOver(target) {
