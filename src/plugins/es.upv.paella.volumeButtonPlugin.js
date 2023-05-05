@@ -56,7 +56,9 @@ function buildSlider() {
         mouseDown = false;
     });
 
-    this.sliderContainer.style.display = "none";
+    if (!this.volumeAlwaysVisible) {
+        this.sliderContainer.style.display = "none";
+    }
 
     bindEvent(this.player, Events.VOLUME_CHANGED, ({volume}) => {
         this.updateIcon(volume)
@@ -130,22 +132,48 @@ export default class VolumePlugin extends ButtonPlugin {
     }
     
     async load() {
+        this.showContainerOnFocus = this.config.showVolumeOnFocus ?? true;
+        this.volumeAlwaysVisible = this.config.volumeAlwaysVisible ?? false;
+
         this._prevVolume = await this.player.videoContainer.volume();
         buildSlider.apply(this);
         
         this.updateIcon(this._prevVolume);
+    }
 
+    showSideContainer() {
+        if (!this.volumeAlwaysVisible) {
+            this.sliderContainer.style.display = "inline-block";
+        }
+    }
+
+    hideSideContainer() {
+        if (!this.volumeAlwaysVisible) {
+            this.sliderContainer.style.display = "none";
+        }
     }
 
     async mouseOver(target) {
         if (target === this.container) {
-            this.sliderContainer.style.display = "inline-block";
+            this.showSideContainer();
         }
     }
 
     async mouseOut(target) {
         if (target === this.container) {
-            this.sliderContainer.style.display = "none";
+            this.hideSideContainer();
+        }
+    }
+
+    async focusIn() {
+        if (this.showContainerOnFocus) {
+            this.showSideContainer();
+        }
+    }
+
+    async focusOut() {
+        if (this.showContainerOnFocus) {
+            this.hideSideContainer();
         }
     }
 

@@ -69,12 +69,17 @@ Set the audio volume. This plugin only works on desktop platforms, as the volume
         "es.upv.paella.volumeButtonPlugin": {
             "enabled": true,
             "side": "left",
-            "order": 3
+            "order": 3,
+            "volumeAlwaysVisible": false,
+            "showVolumeOnFocus": true
         },
         ...
     }
 }
 ```
+
+- `volumeAlwaysVisible` (paella-basic-plugins >= 1.31): By default, the volume slider is hidden until the user moves the mouse over the volume button. With this parameter you can make the volume slider always visible.
+- `showVolumeOnFocus` (paella-basic-plugins >= 1.31): If set to `false`, the volume slider will not be displayed when the button receives focus. By default this value is `true`.
 
 **Exported as** `VolumeButtonPlugin`.
 
