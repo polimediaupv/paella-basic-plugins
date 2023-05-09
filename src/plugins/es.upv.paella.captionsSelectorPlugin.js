@@ -14,6 +14,7 @@ export default class CaptionsSelectorPlugin extends MenuButtonPlugin{
     async load() {
         this.icon = this.player.getCustomPluginIcon(this.name,"captionsIcon") || captionsPlugin;
         this._captionsCanvas = this.player.captionsCanvas;
+        this._selected = null;
 
         if (this._captionsCanvas.captions.length==0) {
             this.hide();
@@ -25,8 +26,12 @@ export default class CaptionsSelectorPlugin extends MenuButtonPlugin{
             }
         });
 
-        bindEvent(this.player, Events.CAPTIONS_ENABLED, (captionsData) => {
+        bindEvent(this.player, Events.CAPTIONS_ENABLED, captionsData => {
             this._selected = captionsData.language;
+        });
+
+        bindEvent(this.player, Events.CAPTIONS_DISABLED, () => {
+            this._selected = null;
         });
     }
 
@@ -35,7 +40,8 @@ export default class CaptionsSelectorPlugin extends MenuButtonPlugin{
             {
                 id: -1,
                 title: "Disabled",
-                index: -1
+                index: -1,
+                selected: this._selected === null
             }
         ];
 
