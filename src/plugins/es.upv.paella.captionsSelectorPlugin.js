@@ -24,6 +24,10 @@ export default class CaptionsSelectorPlugin extends MenuButtonPlugin{
                 this.show();
             }
         });
+
+        bindEvent(this.player, Events.CAPTIONS_ENABLED, (captionsData) => {
+            this._selected = captionsData.language;
+        });
     }
 
     async getMenu() {
@@ -39,7 +43,8 @@ export default class CaptionsSelectorPlugin extends MenuButtonPlugin{
             result.push({
                 id: c.language,
                 title: c.label,
-                index: i
+                index: i,
+                selected: c.language === this._selected
             });
         })
         return result;
