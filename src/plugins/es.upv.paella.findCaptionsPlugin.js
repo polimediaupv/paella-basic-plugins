@@ -137,17 +137,21 @@ export default class FindCaptionsPlugin extends PopUpButtonPlugin {
         return this.player.captionsCanvas.captions;
     }
 
+    get customPopUpClass() {
+        return "find-captions";
+    }
+
     async load() {
         this.icon = this.player.getCustomPluginIcon(this.name,"findCaptionsIcon") || searchIcon;
         this._captionsCanvas = this.player.captionsCanvas;
 
         if (this.captions.length === 0) {
-            this.hide();
+            this.disable();
         }
 
         bindEvent(this.player, Events.CAPTIONS_CHANGED, () => {
             if (this.captions.length > 0) {
-                this.show();
+                this.enable();
             }
         })
     }

@@ -11,18 +11,20 @@ export default class CaptionsSelectorPlugin extends MenuButtonPlugin{
         return this.getAriaLabel();
     }
 
+    
+
     async load() {
         this.icon = this.player.getCustomPluginIcon(this.name,"captionsIcon") || captionsPlugin;
         this._captionsCanvas = this.player.captionsCanvas;
         this._selected = null;
 
         if (this._captionsCanvas.captions.length==0) {
-            this.hide();
+            this.disable();
         }
 
         bindEvent(this.player, Events.CAPTIONS_CHANGED, () => {
             if (this._captionsCanvas.captions.length>0) {
-                this.show();
+                this.enable();
             }
         });
 

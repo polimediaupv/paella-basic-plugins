@@ -223,13 +223,22 @@
             "enabled": true,
             "parentContainer": "videoContainer",
             "order": 80,
-            "description": "Keyboard shortcuts"
+            "description": "Keyboard shortcuts",
+            "resizeable": true,
+            "popUpType": "no-modal"
         },
 
         "es.upv.paella.findCaptionsPlugin": {
             "enabled": true,
             "side": "right",
-            "description": "Search in captions"
+            "description": "Search in captions",
+            "resizeable": true,
+            "moveable": true,
+            "menuTitle": "Search in captions",
+            "closeActions": {
+                "clickOutside": false,
+                "closeButton": true
+            }
         },
 
         "es.upv.paella.customTimeProgressIndicator": {
