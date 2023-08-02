@@ -1,8 +1,17 @@
 import { ButtonPlugin } from 'paella-core';
+import BasicPluginsModule from './BasicPluginsModule';
 
 import defaultBackwardIcon from '../icons/back-30-s.svg';
 
 export default class BackwardButtonPlugin extends ButtonPlugin {
+	getPluginModuleInstance() {
+        return BasicPluginsModule.Get();
+    }
+
+    get name() {
+        return super.name || "es.upv.paella.backwardButtonPlugin";
+    }
+
 	getAriaLabel() {
         return this.player.translate("Backward $1 seconds",[this.time]);
     }

@@ -1,9 +1,18 @@
 import { Events, bindEvent, ButtonPlugin } from 'paella-core';
+import BasicPluginsModule from './BasicPluginsModule';
 
 import fullscreenIcon from '../icons/fullscreen.svg';
 import windowedIcon from '../icons/windowed.svg';
 
 export default class PauseButtonPlugin extends ButtonPlugin {
+	getPluginModuleInstance() {
+        return BasicPluginsModule.Get();
+    }
+
+    get name() {
+        return super.name || "es.upv.paella.fullscreenButton";
+    }
+
 	getAriaLabel() {
         return "Toggle fullscreen";
     }

@@ -1,9 +1,18 @@
 import { MenuButtonPlugin, Events } from 'paella-core';
+import BasicPluginsModule from './BasicPluginsModule';
 
 import screenIcon from '../icons/screen.svg';
 import '../css/playbackRate.css';
 
 export default class PlaybackRateButton extends MenuButtonPlugin {
+    getPluginModuleInstance() {
+        return BasicPluginsModule.Get();
+    }
+
+    get name() {
+        return super.name || "es.upv.paella.playbackRateButton";
+    }
+
     getAriaLabel() {
         return "Playback rate";
     }

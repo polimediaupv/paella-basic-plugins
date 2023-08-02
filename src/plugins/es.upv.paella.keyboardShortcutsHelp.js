@@ -2,11 +2,20 @@ import {
 	PopUpButtonPlugin,
 	createElementWithHtmlText
 } from 'paella-core';
+import BasicPluginsModule from './BasicPluginsModule';
 
 import defaultKeyboardIcon from '../icons/keyboard.svg';
 import '../css/KeyboardShortcutsHelp.css';
 
 export default class KeyboardShortcutsHelpPlugin extends PopUpButtonPlugin {
+	getPluginModuleInstance() {
+        return BasicPluginsModule.Get();
+    }
+
+    get name() {
+        return super.name || "es.upv.paella.keyboardShortcutsHelp";
+    }
+
 	async isEnabled() {
 		const enabled = await super.isEnabled();
 		return enabled && this.player.getShortcuts().length > 0;

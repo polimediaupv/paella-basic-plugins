@@ -1,5 +1,6 @@
 
 import{ ButtonPlugin, createElementWithHtmlText, Events, bindEvent } from 'paella-core';
+import BasicPluginsModule from './BasicPluginsModule';
 
 import defaultVolumeHighIcon from '../icons/volume-high.svg';
 import defaultVolumeMidIcon from '../icons/volume-mid.svg';
@@ -67,6 +68,14 @@ function buildSlider() {
 
 
 export default class VolumePlugin extends ButtonPlugin {
+    getPluginModuleInstance() {
+        return BasicPluginsModule.Get();
+    }
+
+    get name() {
+        return super.name || "es.upv.paella.volumeButtonPlugin";
+    }
+
     getAriaLabel() {
         return "Volume";
     }

@@ -1,8 +1,17 @@
 import { MenuButtonPlugin } from 'paella-core';
+import BasicPluginsModule from './BasicPluginsModule';
 
 import defaultScreenIcon from '../icons/screen.svg';
 
 export default class QualitySelectorPlugin extends MenuButtonPlugin {
+    getPluginModuleInstance() {
+        return BasicPluginsModule.Get();
+    }
+
+    get name() {
+        return super.name || "es.upv.paella.qualitySelector";
+    }
+
     getAriaLabel() {
         return "Video quality";
     }

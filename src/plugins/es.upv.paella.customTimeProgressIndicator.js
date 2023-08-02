@@ -1,6 +1,15 @@
 import { ButtonPlugin, Events, utils } from "paella-core";
+import BasicPluginsModule from "./BasicPluginsModule";
 
 export default class CustomTimeProgressIndicator extends ButtonPlugin {
+    getPluginModuleInstance() {
+        return BasicPluginsModule.Get();
+    }
+
+    get name() {
+        return super.name || "es.upv.paella.customTimeProgressIndicator";
+    }
+
     async isEnabled() {
         const e = await super.isEnabled();
 

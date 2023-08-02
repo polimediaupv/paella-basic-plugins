@@ -9,8 +9,16 @@ import {
 import '../css/FindCaptionsPlugin.css';
 
 import searchIcon from '../icons/binoculars.svg';
+import BasicPluginsModule from './BasicPluginsModule';
 
 export default class FindCaptionsPlugin extends PopUpButtonPlugin {
+    getPluginModuleInstance() {
+        return BasicPluginsModule.Get();
+    }
+
+    get name() {
+        return super.name || "es.upv.paella.findCaptionsPlugin";
+    }
 
     async getContent() {
         const placeholderText = this.player.translate("Search");

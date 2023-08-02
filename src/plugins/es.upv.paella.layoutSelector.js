@@ -1,8 +1,17 @@
 import { MenuButtonPlugin, utils } from 'paella-core';
+import BasicPluginsModule from './BasicPluginsModule';
 
 import presentationMode from '../icons/presentation-mode.svg';
 
 export default class LayoutSelectorPlugin extends MenuButtonPlugin {
+	getPluginModuleInstance() {
+        return BasicPluginsModule.Get();
+    }
+
+    get name() {
+        return super.name || "es.upv.paella.layoutSelector";
+    }
+
 	getAriaLabel() {
         return "Video layout";
     }

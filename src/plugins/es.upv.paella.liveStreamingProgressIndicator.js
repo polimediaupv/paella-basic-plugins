@@ -1,4 +1,5 @@
 import { ProgressIndicatorPlugin } from "paella-core";
+import BasicPluginsModule from "./BasicPluginsModule";
 
 function draw(context, width, height, isHover) {
     const xPos = this._side === 'left' ? this._margin : this._side === 'center' ? width / 2: width - this._margin;
@@ -17,6 +18,13 @@ function draw(context, width, height, isHover) {
 }
 
 export default class LiveStreamingProgressIndicatorPlugin extends ProgressIndicatorPlugin {
+    getPluginModuleInstance() {
+        return BasicPluginsModule.Get();
+    }
+
+    get name() {
+        return super.name || "es.upv.paella.liveStreamingProgressIndicator";
+    }
 
     get minHeight() {
         return 20;

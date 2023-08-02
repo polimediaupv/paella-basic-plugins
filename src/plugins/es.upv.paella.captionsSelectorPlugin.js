@@ -1,8 +1,17 @@
 import { MenuButtonPlugin, Events, bindEvent, PopUp } from 'paella-core';
+import BasicPluginsModule from './BasicPluginsModule';
 
 import captionsPlugin from '../icons/captions_cc.svg';
 
 export default class CaptionsSelectorPlugin extends MenuButtonPlugin{
+    getPluginModuleInstance() {
+        return BasicPluginsModule.Get();
+    }
+
+    get name() {
+        return super.name || "es.upv.paella.captionsSelectorPlugin";
+    }
+
     getAriaLabel() {
         return "Select captions";
     }
@@ -10,8 +19,6 @@ export default class CaptionsSelectorPlugin extends MenuButtonPlugin{
     getDescription() {
         return this.getAriaLabel();
     }
-
-    
 
     async load() {
         this.icon = this.player.getCustomPluginIcon(this.name,"captionsIcon") || captionsPlugin;

@@ -1,8 +1,16 @@
 import { MenuButtonPlugin } from 'paella-core';
+import BasicPluginsModule from './BasicPluginsModule';
 
 import screenIcon from '../icons/screen.svg';
 
 export default class AudioSelectorPlugin extends MenuButtonPlugin {
+    getPluginModuleInstance() {
+        return BasicPluginsModule.Get();
+    }
+
+    get name() {
+        return super.name || "es.upv.paella.audioSelector";
+    }
 
     getAriaLabel() {
         return "Select the active audio track";

@@ -18,6 +18,93 @@ export default function getBasicPluginsContext() {
     return require.context("./plugins", true, /\.js/)
 }
 
+export const basicPlugins = [
+    {
+        plugin: AudioSelectorButton,
+        config: {
+            enabled: false
+        }
+    },
+    {
+        plugin: BackwardButton,
+        config: {
+            enabled: false
+        }
+    },
+    {
+        plugin: CaptionsSelectorButton,
+        config: {
+            enabled: false
+        }
+    },
+    {
+        plugin: DownloadsButton,
+        config: {
+            enabled: false
+        }
+    },
+    {
+        plugin: FindCaptionsButton,
+        config: {
+            enabled: false
+        }
+    },
+    {
+        plugin: ForwardButton,
+        config: {
+            enabled: false
+        }
+    },
+    {
+        plugin: FullscreenButton,
+        config: {
+            enabled: false
+        }
+    },
+    {
+        plugin: KeyboardHelpButton,
+        config: {
+            enabled: false
+        }
+    },
+    {
+        plugin: LayoutSelectorButton,
+        config: {
+            enabled: false
+        }
+    },
+    {
+        plugin: PlaybackRateButton,
+        config: {
+            enabled: false
+        }
+    },
+    {
+        plugin: QualitySelectorButton,
+        config: {
+            enabled: false
+        }
+    },
+    {
+        plugin: VolumeButton,
+        config: {
+            enabled: false
+        }
+    },
+    {
+        plugin: CustomTimeProgressIndicator,
+        config: {
+            enabled: false
+        }
+    },
+    {
+        plugin: LiveStreamingProgressIndicator,
+        config: {
+            enabled: false
+        }
+    }
+];
+
 export const AudioSelectorButtonPlugin = AudioSelectorButton;
 export const BackwardButtonPlugin = BackwardButton;
 export const CaptionsSelectorButtonPlugin = CaptionsSelectorButton;

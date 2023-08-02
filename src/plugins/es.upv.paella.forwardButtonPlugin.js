@@ -1,8 +1,17 @@
 import { ButtonPlugin } from 'paella-core';
+import BasicPluginsModule from './BasicPluginsModule';
 
 import defaultForwardIcon from '../icons/forward-30-s.svg';
 
 export default class ForwardButtonPlugin extends ButtonPlugin {
+	getPluginModuleInstance() {
+        return BasicPluginsModule.Get();
+    }
+
+    get name() {
+        return super.name || "es.upv.paella.forwardButtonPlugin";
+    }
+
 	getAriaLabel() {
         return this.player.translate("Forward $1 seconds",[this.config.time]);
     }
