@@ -4,6 +4,8 @@
 
 **Step 1:** Import the plugin context and add it to the Paella Player initialization parameters:
 
+Usin plugin context API:
+
 ```javascript
 ...
 import getBasicPluginsContext from 'paella-basic-plugins';
@@ -11,6 +13,29 @@ import getBasicPluginsContext from 'paella-basic-plugins';
 let paella = new Paella('player-container', {
     customPluginContext: [
         getBasicPluginsContext()
+    ]
+});
+...
+```
+
+Using explicit plugin import API (paella-basic-plugins >= 1.41):
+
+```javascript
+...
+import {
+    basicPlugins, // All plugins
+    FullscreenButtonPlugin      // Independent plugin
+} from 'paella-basic-plugins';
+
+let paella = new Paella('player-container', {
+    plugins: [
+        ...basicPlugins,    // All plugins
+        { // One plugin
+            plugin: FullscreenButtonPlugin,
+            config: {
+                enabled: true
+            }
+        }
     ]
 });
 ...
