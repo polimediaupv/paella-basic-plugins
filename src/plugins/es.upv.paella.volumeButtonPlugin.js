@@ -1,5 +1,11 @@
 
-import{ ButtonPlugin, createElementWithHtmlText, Events, bindEvent } from 'paella-core';
+import{ 
+    ButtonPlugin, 
+    createElementWithHtmlText, 
+    Events, 
+    bindEvent,
+    isVolumeApiAvailable
+} from 'paella-core';
 import BasicPluginsModule from './BasicPluginsModule';
 
 import defaultVolumeHighIcon from '../icons/volume-high.svg';
@@ -74,6 +80,11 @@ export default class VolumePlugin extends ButtonPlugin {
 
     get name() {
         return super.name || "es.upv.paella.volumeButtonPlugin";
+    }
+
+    async isEnabled() {
+        const e = await super.isEnabled();
+        return e && await isVolumeApiAvailable();
     }
 
     getAriaLabel() {
