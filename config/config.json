@@ -16,7 +16,7 @@
     },
 
     "videoContainer": {
-        "overPlaybackBar": true,
+        "overPlaybackBar": false,
 
         "restorePlaybackRate": true,
         "restoreVolume": true,
@@ -197,6 +197,11 @@
         },
 
         "es.upv.paella.captionsSelectorPlugin": {
+            "enabled": true,
+            "side": "right"
+        },
+
+        "es.upv.paella.hlsCaptionsSelectorPlugin": {
             "enabled": true,
             "side": "right"
         },

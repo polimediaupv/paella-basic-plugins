@@ -259,6 +259,31 @@ Allows you to select the subtitle track of the video. The plugin is able to dete
     * `captionsIcon`
 
 
+### HLS Captions selector plugin
+
+Allows you to select the subtitle track of an HLS stream. This plugin is not integrated with the paella-core subtitle system, but uses the APIs of the hls.js library that allow to display the subtitles of a m3u8 playlist printed over the video containing the subtitles. For that reason, the subtitles will only be seen on the HLS video. Also, the plugin implementation is restricted only to the video containing the audio track.
+
+```json
+{
+    "es.upv.paella.hlsCaptionsSelectorPlugin": {
+        "enabled": true,
+        "side": "right",
+        "parentContainer": "playbackBar",
+        "menuTitle": "Available Captions"
+    },
+    ...
+}
+```
+
+**Exported as** `HlsCaptionsSelectorButtonPlugin`.
+
+**Icon customization data:**
+
+- Plugin identifier: `es.upv.paella.hlsCaptionsSelectorPlugin`
+- Icon names:
+    * `captionsIcon`
+
+
 ### Quality selector
 
 Allows to select the video quality level, in case the video supports several quality levels. The quality information displayed by the plugin is obtained from the `playerInstance.captionsCanvas` API.
