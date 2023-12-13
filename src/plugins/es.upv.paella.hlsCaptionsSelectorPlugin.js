@@ -69,6 +69,7 @@ export default class HlsCaptionsSelectorPlugin extends MenuButtonPlugin{
 
     itemSelected(itemData) {
         this._hls.subtitleTrack = itemData.index;
+        this._selected = this._tracks.find(t => t.index === itemData.index)?.language;
         PopUp.HideAllPopUps(false);
     }
 }
