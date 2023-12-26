@@ -84,6 +84,8 @@ Enables and disables full screen mode.
     * `fullscreenIcon`: enter fullscreen mode icon.
     * `windowedIcon`: exit fullscreen mode icon.
 
+Note: On iOS it is not possible to enable fullscreen on DOM tree elements, only on a video. As paella-core is mainly a multi-stream player, the fullscreen button is disabled on iPhone devices, porque solo se podría hacer fullscreen en uno de los vídeos. In addition to this, fullscreen on a single video causes important features of the player to be lost, such as subtitles, so the button is also not active on single stream videos.
+
 ### Volume
 
 Set the audio volume. This plugin only works on desktop platforms, as the volume change APIs do not work on mobile devices.
@@ -116,6 +118,8 @@ Set the audio volume. This plugin only works on desktop platforms, as the volume
     * `volumeMidIcon`: medium volume level.
     * `volumeLowIcon`: low volume level.
     * `volumeMuteIcon`: muted volume.
+
+Note: the JavaScript volume API is read only on iPad and iPhone devices. According to Apple, this is because on both iPad and iPhone, only a simultaneous audio stream is allowed to play. For example, if background music is being played, it will be detained if we play a video from another application. For this reason, the volume plugin is not available on iPad and iPhone platforms. This restriction can be extended to other platforms that do not have a valid audio volume API either.
 
 ### Forward and backward buttons
 
