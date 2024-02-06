@@ -4,7 +4,7 @@ import {
     bindEvent,
     Events,
     Paella
-} from 'paella-core';
+} from 'paella-core/index.js';
 
 import '../css/FindCaptionsPlugin.css';
 

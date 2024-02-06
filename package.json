@@ -7,12 +7,11 @@
 		"./paella-basic-plugins.css": "./dist/paella-basic-plugins.css"
 	},
 	"description": "Basic plugins for Paella Player",
-	"main": "dist/paella-basic-plugins.js",
+	"main": "./src/index.js",
 	"type": "module",
-	"module": "dist/paella-basic-plugins.js",
+	"module": "./src/index.js",
 	"files": [
-		"dist/paella-basic-plugins.css",
-		"dist/paella-basic-plugins.js"
+		"dist/paella-basic-plugins.css"
 	],
 	"scripts": {
 		"dev": "vite",

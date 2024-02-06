@@ -1,5 +1,5 @@
-import MenuButtonPlugion from 'paella-core/core/MenuButtonPlugin.js';
-import { MenuButtonPlugin, Events, bindEvent, PopUp } from 'paella-core/index.js';
+import MenuButtonPlugin from 'paella-core/core/MenuButtonPlugin';
+import PopUp from 'paella-core/core/PopUp';
 import BasicPluginsModule from './BasicPluginsModule';
 
 import captionsPlugin from '../icons/captions_cc.svg';
