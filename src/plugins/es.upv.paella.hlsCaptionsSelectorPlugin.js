@@ -1,5 +1,4 @@
 import MenuButtonPlugin from 'paella-core/core/MenuButtonPlugin';
-import PopUp from 'paella-core/core/PopUp';
 import BasicPluginsModule from './BasicPluginsModule';
 
 import captionsPlugin from '../icons/captions_cc.svg';
@@ -71,6 +70,5 @@ export default class HlsCaptionsSelectorPlugin extends MenuButtonPlugin{
     itemSelected(itemData) {
         this._hls.subtitleTrack = itemData.index;
         this._selected = this._tracks.find(t => t.index === itemData.index)?.language;
-        PopUp.HideAllPopUps(false);
     }
 }

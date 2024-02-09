@@ -1,4 +1,4 @@
-import { MenuButtonPlugin, Events, bindEvent, PopUp } from 'paella-core';
+import { MenuButtonPlugin, Events, bindEvent } from 'paella-core';
 import BasicPluginsModule from './BasicPluginsModule';
 
 import captionsPlugin from '../icons/captions_cc.svg';
@@ -76,6 +76,5 @@ export default class CaptionsSelectorPlugin extends MenuButtonPlugin{
         else {
             this._captionsCanvas.enableCaptions({ index: itemData.index });
         }
-        PopUp.HideAllPopUps(false);
     }
 }
