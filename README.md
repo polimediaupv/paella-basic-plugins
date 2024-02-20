@@ -75,6 +75,64 @@ Enables and disables full screen mode.
 }
 ```
 
+**Fullscreen fallback on iOS devices:** On iPhone full screen mode is not supported for HTML elements, it works only for videos. As paella player is a multi stream player, this kind of full screen is not useful. In addition, even if the video manifest only contains one video stream, if you use the full screen mode you will lose the playback bar, the subtitles and any other add-on added with paella-core or any of its plugins.
+
+This plugin supports a fallback when the player is used in embedded mode, for example, inside a web portal. If the video container is of a different size than the available area in the viewport, the fullscreen button will be displayed and when entering fullscreen mode the `paella-fallback-fullscreen` class will be added. With this we have a way to use the full screen mode in the viewport of the browser through CSS.
+
+The plugin does not add CSS rules for fullscreen mode because paella-core does not impose any restriction on the element used as video container, and therefore the definition of the styles is free and left on the developer side: it is not possible to define a CSS selector that ensures that the fullscreen styles will be applied, unless you use `!important` (and this is a bad practice):
+
+```css
+.paella-fallback-fullscreen {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0px !important;
+    height: 0px !important;
+    width: 100dvw !important;
+    height: 100dvh !important;
+    z-index: 100000;
+}
+```
+
+Therefore, to use the full screen fallback mode for iOS, it is necessary to add the styles to the CSS. It is recommended to do it together with the definition of the video container styles. The full screen style should be specified with a `display: fixed`, set to the edges of the window, with a width of `100dvw` and height of `100dvh` and a high z index, so that we know that no element of our site is going to be drawn over the player. This could be an example configuration on a web site that contains an embedded player:
+
+```html
+<body>
+    ...
+    <article class="player-section">
+        <h1>My Player</h1>
+        <div class="player-container"></div>
+    </article>
+    ...
+</body>
+```
+
+```css
+.player-section {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    ... other CSS rules for the player section
+}
+
+.player-container {
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+.player-container.paella-fallback-fullscreen {
+    position: fixed;
+    aspect-ratio: auto;
+    top: 0px;
+    left: 0px;
+    width: 100dvw;
+    height: 100dvh;
+    z-index: 100000;
+}
+```
+
+
+
 **Exported as** `FullscreenButtonPlugin`.
 
 **Icon customization data:**

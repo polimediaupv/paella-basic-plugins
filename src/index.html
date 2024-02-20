@@ -8,17 +8,39 @@
 	<style>
 		body {
 			margin: 0;
+			display: flex;
+			justify-content: center;
 		}
 
-		#player-container {
-			width: 100vw;
-			height: 100vh;
-			position: relative;
+		.player-section {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			width: 95%;
+		}
+
+		.player-container {
+			width: 100%;
+			aspect-ratio: 16/9;
 			font-family: helvetica, arial, sans-serif;
+		}
+
+		/* Fallback fullscreen plugin: add these styles to your style sheet to control the fullscreen mode in iPhone */
+		.player-container.paella-fallback-fullscreen {
+			position: fixed;
+			aspect-ratio: auto;
+			top: 0px;
+			left: 0px;
+			width: 100dvw;
+			height: 100dvh;
+			z-index: 100000;
 		}
 	</style>
 </head>
 <body>
-	<div id="player-container"></div>
+	<article class="player-section">
+		<h1>Paella Player</h1>
+		<div id="player-container" class="player-container"></div>
+	</article>
 </body>
 </html>

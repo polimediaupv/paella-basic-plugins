@@ -21,9 +21,15 @@ export default class PauseButtonPlugin extends ButtonPlugin {
         return this.getAriaLabel();
     }
 	
+	get isFallbackFSAvailable() {
+		const { width: viewportWidth, height: viewportHeight } = globalThis.visualViewport;
+		const { w: playerWidth, h: playerHeight } = this.player.containerSize;
+		return viewportWidth !== playerWidth || viewportHeight !== playerHeight;
+	}
+
 	async isEnabled() {
-		const enabled = await super.isEnabled()
-		return enabled && this.player.isFullScreenSupported()
+		const enabled = await super.isEnabled();
+		return enabled && this.player.isFullScreenSupported() || this.isFallbackFSAvailable;
 	}
 	
 	async load() {
@@ -40,12 +46,30 @@ export default class PauseButtonPlugin extends ButtonPlugin {
 		})
 	}
 	
-	async action() {
+	async toggleFS() {
 		if (this.player.isFullscreen) {
 			await this.player.exitFullscreen();
 		}
 		else {
 			await this.player.enterFullscreen();
+		}
+	}
+
+	toggleFallbackFS() {
+		if (this.player.containerElement.classList.contains("paella-fallback-fullscreen")) {
+			this.player.containerElement.classList.remove("paella-fallback-fullscreen");
+		}
+		else {
+			this.player.containerElement.classList.add("paella-fallback-fullscreen");
+		}
+	}
+	
+	async action() {
+		if (this.player.isFullScreenSupported()) {
+			await this.toggleFS();
+		}
+		else {
+			this.toggleFallbackFS();
 		}
 	}
 }
