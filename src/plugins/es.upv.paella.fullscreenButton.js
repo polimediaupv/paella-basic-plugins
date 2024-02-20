@@ -1,4 +1,4 @@
-import { Events, bindEvent, ButtonPlugin } from 'paella-core';
+import { Events, bindEvent, triggerEvent, ButtonPlugin } from 'paella-core';
 import BasicPluginsModule from './BasicPluginsModule';
 
 import fullscreenIcon from '../icons/fullscreen.svg';
@@ -62,6 +62,9 @@ export default class PauseButtonPlugin extends ButtonPlugin {
 		else {
 			this.player.containerElement.classList.add("paella-fallback-fullscreen");
 		}
+		setTimeout(() => {
+			this.player.resize();
+		}, 100);
 	}
 	
 	async action() {
