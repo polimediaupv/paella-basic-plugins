@@ -22,15 +22,13 @@ export default class HlsCaptionsSelectorPlugin extends MenuButtonPlugin{
 
     async isEnabled() {
         const result = await super.isEnabled();
-        this._hls = this.player.videoContainer.streamProvider.mainAudioPlayer._hls;
-        return this._hls && result;
+        this._mainVideo = this.player.videoContainer.streamProvider.mainAudioPlayer.video;
+        return this._mainVideo && result;
     }
 
     async load() {
         this.icon = this.player.getCustomPluginIcon(this.name,"captionsIcon") || captionsPlugin;
-        const tracks = this._hls.subtitleTracks || [];
-        this._tracks = tracks;
-        const subtitleTrack = this._hls.subtitleTrack ?? -1;
+        this._tracks = this._mainVideo.textTracks;
         this._disabledTrack = {
             id: -1,
             title: "Disabled",
@@ -39,7 +37,7 @@ export default class HlsCaptionsSelectorPlugin extends MenuButtonPlugin{
         };
         this._selected = null;
 
-        if (tracks.length==0) {
+        if (this._tracks.length==0) {
             this.disable();
         }
     }
@@ -52,12 +50,12 @@ export default class HlsCaptionsSelectorPlugin extends MenuButtonPlugin{
             selected: this._selected === null
         } ];
 
-        this._tracks.forEach((c,i) => {
+        Array.from(this._tracks).forEach((c,i) => {
             result.push({
-                id: c.attrs.LANGUAGE || c.attrs.NAME,
-                title: c.attrs.NAME || c.attrs.LANGUAGE,
+                id: i,
+                title: c.label || c.language,
                 index: i,
-                selected: c.language === this._selected
+                selected: i === this._selected
             });
         })
         return result;
@@ -68,8 +66,10 @@ export default class HlsCaptionsSelectorPlugin extends MenuButtonPlugin{
     }
 
     itemSelected(itemData) {
-        this._hls.subtitleTrack = itemData.index;
-        this._selected = this._tracks.find(t => t.index === itemData.index)?.language;
+        this._selected = itemData.id !== null ? itemData.id : null;
+        Array.from(this._mainVideo.textTracks).forEach((c,i) => {
+            c.mode = i === this._selected ? "showing" : "hidden";
+        });
         PopUp.HideAllPopUps(false);
     }
 }
