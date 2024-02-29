@@ -1,6 +1,6 @@
 {
 	"name": "paella-basic-plugins",
-	"version": "1.44.4",
+	"version": "1.44.5",
 	"description": "Basic plugins for Paella Player",
 	"main": "src/index.js",
 	"module": "dist/paella-basic-plugins.js",
