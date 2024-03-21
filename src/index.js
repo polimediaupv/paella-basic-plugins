@@ -112,6 +112,8 @@ export const basicPlugins = [
     }
 ];
 
+export const allPlugins = basicPlugins;
+
 export const AudioSelectorButtonPlugin = AudioSelectorButton;
 export const BackwardButtonPlugin = BackwardButton;
 export const CaptionsSelectorButtonPlugin = CaptionsSelectorButton;
