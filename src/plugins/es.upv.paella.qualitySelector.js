@@ -1,7 +1,7 @@
 import { MenuButtonPlugin } from 'paella-core';
 import BasicPluginsModule from './BasicPluginsModule';
 
-import defaultScreenIcon from '../icons/screen.svg';
+import { ScreenIcon as defaultScreenIcon }  from '../icons/screen.js';
 
 export default class QualitySelectorPlugin extends MenuButtonPlugin {
     getPluginModuleInstance() {

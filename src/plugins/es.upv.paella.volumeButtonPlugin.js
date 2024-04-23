@@ -15,8 +15,6 @@ import {
     volumeMute as defaultVolumeMuteIcon
  } from '../icons/volume-icons.js';
 
-import "../css/slider.css";
-
 export default class VolumePlugin extends ButtonPlugin {
     getPluginModuleInstance() {
         return BasicPluginsModule.Get();
