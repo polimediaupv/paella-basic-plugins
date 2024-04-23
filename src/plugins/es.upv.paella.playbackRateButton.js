@@ -1,7 +1,7 @@
 import { MenuButtonPlugin, Events } from 'paella-core';
 import BasicPluginsModule from './BasicPluginsModule';
 
-import screenIcon from '../icons/screen.svg';
+import { ScreenIcon as screenIcon } from '../icons/screen.js';
 import '../css/playbackRate.css';
 
 export default class PlaybackRateButton extends MenuButtonPlugin {

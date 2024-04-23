@@ -1,7 +1,7 @@
 import { MenuButtonPlugin, utils } from 'paella-core';
 import BasicPluginsModule from './BasicPluginsModule';
 
-import presentationMode from '../icons/presentation-mode.svg';
+import { PresentationModeIcon as presentationMode } from '../icons/presentation-mode.js';
 
 export default class LayoutSelectorPlugin extends MenuButtonPlugin {
 	getPluginModuleInstance() {
