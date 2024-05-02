@@ -1,7 +1,7 @@
 import { MenuButtonPlugin } from 'paella-core';
 import BasicPluginsModule from './BasicPluginsModule';
 
-import screenIcon from '../icons/screen.svg';
+import { ScreenIcon as screenIcon } from '../icons/screen.js';
 
 export default class AudioSelectorPlugin extends MenuButtonPlugin {
     getPluginModuleInstance() {
