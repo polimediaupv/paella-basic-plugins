@@ -1,7 +1,7 @@
 import { ButtonPlugin } from 'paella-core';
 import BasicPluginsModule from './BasicPluginsModule';
 
-import defaultBackwardIcon from '../icons/back-30-s.svg';
+import { BackwardIcon as defaultBackwardIcon } from '../icons/back-30-s.js';
 
 export default class BackwardButtonPlugin extends ButtonPlugin {
 	getPluginModuleInstance() {

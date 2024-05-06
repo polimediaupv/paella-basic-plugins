@@ -1,7 +1,7 @@
 import { ButtonPlugin } from 'paella-core';
 import BasicPluginsModule from './BasicPluginsModule';
 
-import defaultForwardIcon from '../icons/forward-30-s.svg';
+import { ForwardIcon as defaultForwardIcon } from '../icons/forward-30-s.js';
 
 export default class ForwardButtonPlugin extends ButtonPlugin {
 	getPluginModuleInstance() {

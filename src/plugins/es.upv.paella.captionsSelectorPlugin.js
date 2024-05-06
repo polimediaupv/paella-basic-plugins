@@ -1,7 +1,7 @@
 import { MenuButtonPlugin, Events, bindEvent } from 'paella-core';
 import BasicPluginsModule from './BasicPluginsModule';
 
-import captionsPlugin from '../icons/captions_cc.svg';
+import { CaptionsIcon as captionsPlugin } from '../icons/captions_cc.js';
 
 export default class CaptionsSelectorPlugin extends MenuButtonPlugin{
     getPluginModuleInstance() {

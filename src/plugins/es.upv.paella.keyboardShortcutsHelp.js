@@ -4,7 +4,7 @@ import {
 } from 'paella-core';
 import BasicPluginsModule from './BasicPluginsModule';
 
-import defaultKeyboardIcon from '../icons/keyboard.svg';
+import { KeyboardIcon as defaultKeyboardIcon } from '../icons/keyboard.js';
 import '../css/KeyboardShortcutsHelp.css';
 
 export default class KeyboardShortcutsHelpPlugin extends PopUpButtonPlugin {
