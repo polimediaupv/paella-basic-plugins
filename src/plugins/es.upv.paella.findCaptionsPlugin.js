@@ -8,7 +8,7 @@ import {
 
 import '../css/FindCaptionsPlugin.css';
 
-import searchIcon from '../icons/binoculars.svg';
+import { BinocularsIcon as searchIcon } from '../icons/binoculars.js';
 import BasicPluginsModule from './BasicPluginsModule';
 
 export default class FindCaptionsPlugin extends PopUpButtonPlugin {

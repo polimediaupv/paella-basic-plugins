@@ -7,7 +7,7 @@ import BasicPluginsModule from './BasicPluginsModule';
 
 import '../css/DownloadsPlugin.css';
 
-import defaultDownloadIcon from '../icons/download.svg';
+import { DownloadIcon as defaultDownloadIcon } from '../icons/download.js';
 
 export default class DownloadsPlugin extends PopUpButtonPlugin {
     getPluginModuleInstance() {
