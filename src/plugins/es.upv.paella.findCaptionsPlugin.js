@@ -26,7 +26,11 @@ export default class FindCaptionsPlugin extends PopUpButtonPlugin {
 
         this._resultsContainer = createElementWithHtmlText('<div class="search-results"></div>', content);
 
-        const input = createElementWithHtmlText(`<input type="text" placeholder="${placeholderText}"/>`, content);
+        const searchContainer = createElementWithHtmlText(
+            `<div class="search-input-container">
+                <input type="search" placeholder="${placeholderText}"/>
+            </div>`, content);
+        const input = searchContainer.querySelector('input');
         input.addEventListener('click', (evt) => {
             evt.stopPropagation();
         });
