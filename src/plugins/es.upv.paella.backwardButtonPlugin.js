@@ -31,7 +31,7 @@ export default class BackwardButtonPlugin extends ButtonPlugin {
 		this.suffix = addSuffix ? "s" : ""; 
 		this.icon = this.player.getCustomPluginIcon(this.name,"backwardIcon") || defaultBackwardIcon;
 		setTimeout(() => {
-			Array.from(this.iconElement.getElementsByClassName('time-text'))
+			Array.from(this.iconElement?.getElementsByClassName('time-text') || [])
 				.forEach(textIcon => {
 					textIcon.innerHTML = this.time + this.suffix;
 				})
