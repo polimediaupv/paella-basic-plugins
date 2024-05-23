@@ -1,6 +1,8 @@
 import {
 	PopUpButtonPlugin,
-	createElementWithHtmlText
+	createElementWithHtmlText,
+	isVolumeApiAvailable,
+	KeyCodes
 } from 'paella-core';
 import BasicPluginsModule from './BasicPluginsModule';
 
@@ -9,20 +11,23 @@ import '../css/KeyboardShortcutsHelp.css';
 
 export default class KeyboardShortcutsHelpPlugin extends PopUpButtonPlugin {
 	getPluginModuleInstance() {
-        return BasicPluginsModule.Get();
-    }
+		return BasicPluginsModule.Get();
+	}
 
-    get name() {
-        return super.name || "es.upv.paella.keyboardShortcutsHelp";
-    }
+	get name() {
+		return super.name || "es.upv.paella.keyboardShortcutsHelp";
+	}
 
 	async isEnabled() {
+		// Disable the plugin on iPhone, because it's very extrange to have a physical keyboard on an iPhone
+		const iPhone = /iphone/i.test(navigator.userAgent);
 		const enabled = await super.isEnabled();
-		return enabled && this.player.getShortcuts().length > 0;
+		return !iPhone && enabled && this.player.getShortcuts().length > 0;
 	}
 
 	async load() {
-		this.icon = this.player.getCustomPluginIcon(this.name,"keyboardIcon") || defaultKeyboardIcon;
+		this.icon = this.player.getCustomPluginIcon(this.name, "keyboardIcon") || defaultKeyboardIcon;
+		this._isVolumeEnabled = await isVolumeApiAvailable();
 	}
 
 	get popUpType() {
@@ -47,22 +52,49 @@ export default class KeyboardShortcutsHelpPlugin extends PopUpButtonPlugin {
 		return this.config.menuTitle || 'Keyboard shortcuts'
 	}
 
+	checkFunctionality() {
+		// Check captions availability evert time the pop-up is opened
+		this._isCaptionsEnabled = this.player.captionsCanvas.captions.length > 0;
+	}
+
+	filterShortCut = (sc) => {
+		let isEnabled;
+		switch (sc.keyCode) {
+			case KeyCodes.ArrowUp:
+			case KeyCodes.ArrowDown:
+			case KeyCodes.KeyM: {
+				isEnabled = this._isVolumeEnabled;
+				break;
+			}
+			case KeyCodes.KeyC: {
+				isEnabled = this._isCaptionsEnabled;
+				break;
+			}
+			default:
+				isEnabled = true;
+		}
+		return isEnabled;
+	};
+
 	async getContent() {
 		const content = createElementWithHtmlText(`
           <div class="keyboardshortcutshelp-plugin"></div>
         `);
 
 		const descriptions = {};
+		this.checkFunctionality();
 
-		this.player.getShortcuts().forEach(sc => {
-			const description = this.player.translate(sc.description);
-			if (!descriptions[description]) {
-				descriptions[description] = [sc];
-			}
-			else {
-				descriptions[description].push(sc);
-			}
-		});
+		this.player.getShortcuts()
+			.filter(this.filterShortCut)
+			.forEach(sc => {
+				const description = this.player.translate(sc.description);
+				if (!descriptions[description]) {
+					descriptions[description] = [sc];
+				}
+				else {
+					descriptions[description].push(sc);
+				}
+			});
 
 		for (const desc in descriptions) {
 			const shortcuts = descriptions[desc];
