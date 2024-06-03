@@ -4,7 +4,7 @@ import BasicPluginsModule from './BasicPluginsModule';
 import fullscreenIcon from '../icons/fullscreen.svg';
 import windowedIcon from '../icons/windowed.svg';
 
-export default class PauseButtonPlugin extends ButtonPlugin {
+export default class FullscreenButtonPlugin extends ButtonPlugin {
 	getPluginModuleInstance() {
         return BasicPluginsModule.Get();
     }
@@ -29,7 +29,7 @@ export default class PauseButtonPlugin extends ButtonPlugin {
 
 	async isEnabled() {
 		const enabled = await super.isEnabled();
-		return enabled && this.player.isFullScreenSupported() || this.isFallbackFSAvailable;
+		return enabled && (this.player.isFullScreenSupported() || this.isFallbackFSAvailable);
 	}
 	
 	async load() {
