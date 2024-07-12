@@ -33,7 +33,7 @@ export default class QualitySelectorPlugin extends MenuButtonPlugin {
 
         this._qualities = await this.player.videoContainer.streamProvider.getQualities();
 
-        return this._qualities && this._qualities.length>1;
+        return this._qualities && (this.config.showForSingleQuality || this._qualities.length > 1);
     }
 
     async load() {
