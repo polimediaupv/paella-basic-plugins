@@ -22,13 +22,42 @@ export default class HlsCaptionsSelectorPlugin extends MenuButtonPlugin{
 
     async isEnabled() {
         const result = await super.isEnabled();
-        this._mainVideo = this.player.videoContainer.streamProvider.mainAudioPlayer.video;
-        return this._mainVideo && result;
+        this._hls = this.player.videoContainer.streamProvider.mainAudioPlayer._hls;
+        this._video = this.player.videoContainer.streamProvider.mainAudioPlayer.video;
+        return this._video && result;
     }
 
     async load() {
         this.icon = this.player.getCustomPluginIcon(this.name,"captionsIcon") || captionsPlugin;
-        this._tracks = this._mainVideo.textTracks;
+        const hlsTracks = this._hls.subtitleTracks || [];
+        const videoTracks = this._video.textTracks || [];
+        
+        if (hlsTracks.length > 0) {
+            this._tracks = hlsTracks;
+            this._trackType = "hls";
+        }
+        else {
+            this._videoTracks = videoTracks;
+            const getTextTracks = () => {
+                return Array.from(videoTracks).map((t, i) => ({
+                    attrs: {
+                        LANGUAGE: t.language,
+                        NAME: t.label,
+                    },
+                    language: t.language
+                }));
+            }
+            this._tracks = getTextTracks();
+            videoTracks.onaddtrack = () => {
+                this._trackType = "native";
+                this._tracks = getTextTracks();
+                if (this._tracks.length > 0) {
+                    this.enable();
+                }
+            }
+        }
+
+        const subtitleTrack = this._hls.subtitleTrack ?? -1;
         this._disabledTrack = {
             id: -1,
             title: "Disabled",
@@ -66,10 +95,13 @@ export default class HlsCaptionsSelectorPlugin extends MenuButtonPlugin{
     }
 
     itemSelected(itemData) {
-        this._selected = itemData.id !== null ? itemData.id : null;
-        Array.from(this._mainVideo.textTracks).forEach((c,i) => {
-            c.mode = i === this._selected ? "showing" : "hidden";
-        });
+        if (this._trackType === "hls") {
+            this._hls.subtitleTrack = itemData.index;
+        }
+        else if (this._trackType === "native") {
+            this._videoTracks[itemData.index].mode = "showing";
+        }
+        this._selected = this._tracks.find(t => t.index === itemData.index)?.language;
         PopUp.HideAllPopUps(false);
     }
 }
