@@ -44,7 +44,8 @@ export default class HlsCaptionsSelectorPlugin extends MenuButtonPlugin{
                         LANGUAGE: t.language,
                         NAME: t.label,
                     },
-                    language: t.language
+                    language: t.language,
+                    label: t.label,
                 }));
             }
             this._tracks = getTextTracks();
@@ -84,7 +85,7 @@ export default class HlsCaptionsSelectorPlugin extends MenuButtonPlugin{
                 id: i,
                 title: c.label || c.language,
                 index: i,
-                selected: i === this._selected
+                selected: c.language === this._selected
             });
         })
         return result;
@@ -95,13 +96,23 @@ export default class HlsCaptionsSelectorPlugin extends MenuButtonPlugin{
     }
 
     itemSelected(itemData) {
-        if (this._trackType === "hls") {
+        if (itemData.id === -1) {
+            // Disable captions
+            if (this._trackType === "hls") {
+                // TODO: disable captions in hls.js
+            }
+            else if (this._trackType === "native") {
+                Array.from(this._videoTracks).forEach(t => t.mode = "disabled");
+            }
+        }
+        else if (this._trackType === "hls") {
             this._hls.subtitleTrack = itemData.index;
         }
         else if (this._trackType === "native") {
             this._videoTracks[itemData.index].mode = "showing";
         }
-        this._selected = this._tracks.find(t => t.index === itemData.index)?.language;
+        const selected = this._tracks.find((_, i) => i === itemData.index);
+        this._selected = selected?.language ?? null;
         PopUp.HideAllPopUps(false);
     }
 }
