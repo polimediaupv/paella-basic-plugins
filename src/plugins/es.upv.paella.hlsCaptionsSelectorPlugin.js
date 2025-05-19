@@ -49,6 +49,13 @@ export default class HlsCaptionsSelectorPlugin extends MenuButtonPlugin{
                 }));
             }
             this._tracks = getTextTracks();
+            if (this._videoTracks.length > 0) {
+                this._trackType = "native";
+                this._tracks = getTextTracks();
+                if (this._tracks.length > 0) {
+                    this.enable();
+                }
+            }
             videoTracks.onaddtrack = () => {
                 this._trackType = "native";
                 this._tracks = getTextTracks();
