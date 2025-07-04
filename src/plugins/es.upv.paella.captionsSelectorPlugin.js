@@ -13,7 +13,7 @@ export default class CaptionsSelectorPlugin extends MenuButtonPlugin{
     }
 
     getAriaLabel() {
-        return "Select captions";
+        return "Captions";
     }
 
     getDescription() {

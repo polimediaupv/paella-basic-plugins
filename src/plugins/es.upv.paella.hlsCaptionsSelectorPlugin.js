@@ -13,7 +13,7 @@ export default class HlsCaptionsSelectorPlugin extends MenuButtonPlugin{
     }
 
     getAriaLabel() {
-        return "Select captions";
+        return "Captions";
     }
 
     getDescription() {
