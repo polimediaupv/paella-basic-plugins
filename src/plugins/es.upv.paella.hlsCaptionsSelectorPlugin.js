@@ -103,10 +103,20 @@ export default class HlsCaptionsSelectorPlugin extends MenuButtonPlugin{
     }
 
     itemSelected(itemData) {
+        if (!this.config.allowMultipleSelection && itemData.index !== -1) {
+            // Disable all tracks
+            if (this._trackType === "hls") {
+                this._hls.subtitleTrack = -1;
+            }
+            else if (this._trackType === "native") {
+                Array.from(this._videoTracks).forEach(t => t.mode = "disabled");
+            }
+        }
+
         if (itemData.id === -1) {
             // Disable captions
             if (this._trackType === "hls") {
-                // TODO: disable captions in hls.js
+                this._hls.subtitleTrack = -1;
             }
             else if (this._trackType === "native") {
                 Array.from(this._videoTracks).forEach(t => t.mode = "disabled");

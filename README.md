@@ -341,11 +341,17 @@ Allows you to select the subtitle track of an HLS stream. This plugin is not int
         "enabled": true,
         "side": "right",
         "parentContainer": "playbackBar",
-        "menuTitle": "Available Captions"
+        "menuTitle": "Available Captions",
+        "allowMultipleSelection": false
     },
     ...
 }
 ```
+
+The `allowMultipleSelection` parameter allows you to select multiple subtitle tracks at once, provided that the HLS stream supports this functionality. If enabled, selecting subtitle tracks will not disable previously selected tracks. By default, this parameter is set to `false`.
+
+Please note that for this option to work, the subtitle tracks in the M3U8 must have the GROUP-ID defined with different values.
+
 
 **Exported as** `HlsCaptionsSelectorButtonPlugin`.
 
